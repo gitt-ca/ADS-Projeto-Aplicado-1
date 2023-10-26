@@ -1,40 +1,38 @@
 package gui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 
-public class Tela {
+public class HealthFamilyCenterApp {
     private JFrame frame;
-    private JPanel mainPanel;
     private JPanel menuPanel;
-    private JButton button1;
-    private JButton button2;
+    private JPanel agendaPanel;
 
-    public Tela() {
+    public HealthFamilyCenterApp() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLayout(new BorderLayout());
 
         createMenuPanel();
-        createMainPanel();
-        addHealthImage();
+        createAgendaPanel();
 
         frame.add(menuPanel, BorderLayout.WEST);
-        frame.add(mainPanel, BorderLayout.CENTER);
+        frame.add(agendaPanel, BorderLayout.CENTER);
 
         frame.setVisible(true);
     }
 
     private void createMenuPanel() {
         menuPanel = new JPanel();
-        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.PAGE_AXIS));
+        menuPanel.setPreferredSize(new Dimension(200, 600));
         menuPanel.setBackground(new Color(51, 153, 255)); // Azul
 
-        button1 = new JButton("Opção 1");
-        button2 = new JButton("Opção 2");
+        JButton button1 = new JButton("Opção 1");
+        JButton button2 = new JButton("Opção 2");
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -55,28 +53,21 @@ public class Tela {
         menuPanel.add(button2);
     }
 
-    private void createMainPanel() {
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
+    private void createAgendaPanel() {
+        agendaPanel = new JPanel(new BorderLayout());
+        agendaPanel.setBackground(Color.WHITE);
 
-        JLabel titleLabel = new JLabel("HealthFamilyCenter");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        titleLabel.setHorizontalAlignment(JLabel.CENTER);
-
-        mainPanel.add(titleLabel, BorderLayout.NORTH);
-    }
-
-    private void addHealthImage() {
-        ImageIcon healthImage = new ImageIcon("health_icon.png"); // Insira o caminho da imagem
-        JLabel imageLabel = new JLabel(healthImage);
-        mainPanel.add(imageLabel, BorderLayout.EAST);
+        JLabel centerLabel = new JLabel("HealthFamilyCenter");
+        centerLabel.setHorizontalAlignment(JLabel.CENTER);
+        centerLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        agendaPanel.add(centerLabel, BorderLayout.CENTER);
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Tela();
+                new HealthFamilyCenterApp();
             }
         });
     }
