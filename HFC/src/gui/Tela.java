@@ -16,43 +16,42 @@ public class Tela {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
-        frame.setLayout(new BorderLayout());
+        frame.getContentPane().setLayout(new BorderLayout());
 
         createMenuPanel();
         createMainPanel();
         addHealthImage();
-
-        frame.add(menuPanel, BorderLayout.WEST);
-        frame.add(mainPanel, BorderLayout.CENTER);
+        frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
+        menuPanel = new JPanel();
+        mainPanel.add(menuPanel, BorderLayout.WEST);
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+        menuPanel.setBackground(new Color(101, 153, 255)); // Azul
+        
+                button1 = new JButton("Opção 1");
+                button2 = new JButton("Opção 2");
+                
+                        button1.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                // Ação para a Opção 1
+                            }
+                        });
+                        
+                                button2.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        // Ação para a Opção 2
+                                    }
+                                });
+                                
+                                        menuPanel.add(Box.createRigidArea(new Dimension(0, 20))); // Espaçamento
+                                        menuPanel.add(button1);
+                                        menuPanel.add(button2);
 
         frame.setVisible(true);
     }
 
     private void createMenuPanel() {
-        menuPanel = new JPanel();
-        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
-        menuPanel.setBackground(new Color(51, 153, 255)); // Azul
-
-        button1 = new JButton("Opção 1");
-        button2 = new JButton("Opção 2");
-
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Ação para a Opção 1
-            }
-        });
-
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Ação para a Opção 2
-            }
-        });
-
-        menuPanel.add(Box.createRigidArea(new Dimension(0, 20))); // Espaçamento
-        menuPanel.add(button1);
-        menuPanel.add(button2);
     }
 
     private void createMainPanel() {
