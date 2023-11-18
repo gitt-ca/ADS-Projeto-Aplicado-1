@@ -10,7 +10,6 @@ object Form2: TForm2
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  FormStyle = fsMDIForm
   TextHeight = 15
   object Label3: TLabel
     Left = 400
@@ -205,14 +204,14 @@ object Form2: TForm2
       Caption = 'Entrar'
       TabOrder = 2
     end
-    object btnBtnCadastro: TButton
+    object btnCadastro: TButton
       Left = 108
       Top = 336
       Width = 117
       Height = 25
       Caption = 'Cadastre-se'
       TabOrder = 3
-      OnClick = btnBtnCadastroClick
+      OnClick = btnCadastroClick
     end
   end
 end

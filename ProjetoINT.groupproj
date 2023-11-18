@@ -3,10 +3,10 @@
         <ProjectGuid>{5944944C-DE45-49CE-84CA-E0EC6BF67141}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="..\Documentos\Embarcadero\Studio\Projects\healthh.dproj">
+        <Projects Include="healthh.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj">
+        <Projects Include="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -18,22 +18,22 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="healthh">
-        <MSBuild Projects="..\Documentos\Embarcadero\Studio\Projects\healthh.dproj"/>
+        <MSBuild Projects="healthh.dproj"/>
     </Target>
     <Target Name="healthh:Clean">
-        <MSBuild Projects="..\Documentos\Embarcadero\Studio\Projects\healthh.dproj" Targets="Clean"/>
+        <MSBuild Projects="healthh.dproj" Targets="Clean"/>
     </Target>
     <Target Name="healthh:Make">
-        <MSBuild Projects="..\Documentos\Embarcadero\Studio\Projects\healthh.dproj" Targets="Make"/>
+        <MSBuild Projects="healthh.dproj" Targets="Make"/>
     </Target>
     <Target Name="Clinica">
-        <MSBuild Projects="Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj"/>
+        <MSBuild Projects="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj"/>
     </Target>
     <Target Name="Clinica:Clean">
-        <MSBuild Projects="Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj" Targets="Clean"/>
+        <MSBuild Projects="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj" Targets="Clean"/>
     </Target>
     <Target Name="Clinica:Make">
-        <MSBuild Projects="Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj" Targets="Make"/>
+        <MSBuild Projects="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="healthh;Clinica"/>

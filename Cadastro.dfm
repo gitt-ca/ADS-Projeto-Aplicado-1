@@ -4,14 +4,12 @@ object Form3: TForm3
   Caption = 'Form3'
   ClientHeight = 442
   ClientWidth = 628
-  Color = clBtnFace
+  Color = clHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  FormStyle = fsMDIChild
-  Visible = True
   TextHeight = 15
   object lbl1: TLabel
     Left = 400

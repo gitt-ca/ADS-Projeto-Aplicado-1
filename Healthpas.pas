@@ -4,7 +4,7 @@ unit Healthpas;
     uses
     Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
     Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-    Vcl.Imaging.pngimage, Cadastro;
+    Vcl.Imaging.pngimage;
   type
   TForm2 = class(TForm)
     Label3: TLabel;
@@ -22,8 +22,9 @@ unit Healthpas;
     ediUser: TEdit;
     edtPass: TEdit;
     Button1: TButton;
-    btnBtnCadastro: TButton;
-    procedure btnBtnCadastroClick(Sender: TObject);
+    btnCadastro: TButton;
+    procedure btnCadastroClick(Sender: TObject);
+
   private
 
   public
@@ -33,14 +34,20 @@ unit Healthpas;
   Form2 : TForm2;
 
   implementation
+
   {$R *.dfm}
-  procedure TForm2.btnBtnCadastroClick(Sender: TObject);
-  var
-    Cad : TForm3;
-  begin
-  	cad.ShowModal;
 
-  end;
+    uses
+      Cadastro;
 
+  procedure TForm2.btnCadastroClick(Sender: TObject);
+    begin
+    Form3:= TForm3.Create(nil);
+    try
+      Form3.ShowModal;
+    finally
+        FreeAndNil(Form3);
+    end;
+    end;
 
 end.
