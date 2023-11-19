@@ -106,13 +106,8 @@
             <Form>Form3</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\unitCadAgendamentos.pas">
-            <Form>FormCadAgendamento</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Principal.pas">
             <Form>Form4</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

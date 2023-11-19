@@ -223,7 +223,6 @@ object Form3: TForm3
       Width = 234
       Height = 23
       TabOrder = 3
-      Text = 'edt1'
     end
   end
 end
