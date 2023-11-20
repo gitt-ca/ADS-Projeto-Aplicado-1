@@ -166,6 +166,10 @@ VALUES("caio", "123", 1, 1 );
 
 select * from usuario;
 
+delete from usuario;
+
+
+
 
 
 

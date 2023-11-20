@@ -219,12 +219,35 @@ object Form3: TForm3
       TabOrder = 2
       OnClick = btn2Click
     end
-    object edt1: TEdit
+    object edtPassAgain: TEdit
       Left = 47
       Top = 272
       Width = 234
       Height = 23
+      PasswordChar = #6
       TabOrder = 3
     end
+  end
+  object UsuarioTable: TFDQuery
+    Connection = FDConnection1
+    Left = 24
+    Top = 14
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=healthfamilycenter'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 392
+    Top = 104
+  end
+  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
+      'SQL.dll'
+    Left = 528
+    Top = 104
   end
 end
