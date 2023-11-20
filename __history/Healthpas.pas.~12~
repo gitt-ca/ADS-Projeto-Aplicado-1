@@ -24,6 +24,7 @@ unit Healthpas;
     btnCadastro: TButton;
     BtnEntrar: TBitBtn;
     procedure btnCadastroClick(Sender: TObject);
+    procedure BtnEntrarClick(Sender: TObject);
 
   private
 
@@ -49,5 +50,10 @@ unit Healthpas;
         FreeAndNil(Form3);
     end;
     end;
+
+procedure TForm2.BtnEntrarClick(Sender: TObject);
+begin
+  Form4:= TForm4.Create(nil);
+end;
 
 end.

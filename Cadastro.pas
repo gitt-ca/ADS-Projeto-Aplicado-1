@@ -45,6 +45,9 @@ implementation
 procedure TForm3.btn2Click(Sender: TObject);
 begin
 
+
+  //OBS: criar funcao para validação de campos preenchidos ou mais IFs
+
   if edtPass.Text = edtPassAgain.text then
 
     begin

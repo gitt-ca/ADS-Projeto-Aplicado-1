@@ -109,11 +109,6 @@
         <DCCReference Include="Principal.pas">
             <Form>Form4</Form>
         </DCCReference>
-        <DCCReference Include="DataModel.pas">
-            <Form>DataModule2</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

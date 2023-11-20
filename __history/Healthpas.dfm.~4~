@@ -205,14 +205,14 @@ object Form2: TForm2
       TabOrder = 2
       OnClick = btnCadastroClick
     end
-    object BtnEntrar: TBitBtn
+    object entrar: TButton
       Left = 108
-      Top = 283
+      Top = 287
       Width = 117
       Height = 25
       Caption = 'Entrar'
-      DisabledImageName = 'BtnEntrar'
       TabOrder = 3
+      OnClick = btnCadastroClick
     end
   end
 end

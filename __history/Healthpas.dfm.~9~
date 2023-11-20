@@ -213,6 +213,7 @@ object Form2: TForm2
       Caption = 'Entrar'
       DisabledImageName = 'BtnEntrar'
       TabOrder = 3
+      OnClick = BtnEntrarClick
     end
   end
 end

@@ -28,10 +28,10 @@ type
     edtPass: TEdit;
     btn2: TButton;
     lbl12: TLabel;
-    edtPassAgain: TEdit;
     UsuarioTable: TFDQuery;
     FDConnection1: TFDConnection;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
+    edtPassAgain: TEdit;
     procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
@@ -45,19 +45,24 @@ implementation
 procedure TForm3.btn2Click(Sender: TObject);
 begin
 
+
+  //OBS: criar funcao para validação de campos preenchidos  ou mais IFs
+
   if edtPass.Text = edtPassAgain.text then
 
-  UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario) VALUES(:valor1, :valor2, 1, 1 )';
-  UsuarioTable.Params.ParamByName('valor1').Value := edtUser.text;
-  UsuarioTable.Params.ParamByName('valor2').Value := edtPass.text;
-  UsuarioTable.ExecSQL;
-  ShowMessage('Registro inserido com sucesso!')
+    begin
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario) VALUES(:valor1, :valor2, 1, 1 )';
+    UsuarioTable.Params.ParamByName('valor1').Value := edtUser.text;
+    UsuarioTable.Params.ParamByName('valor2').Value := edtPass.text;
+    UsuarioTable.ExecSQL;
+    ShowMessage('Registro inserido com sucesso!');
+    end
 
   else
 
-    ShowMessage('Registro inserido com sucesso!');
+  ShowMessage('Senha não são equivalentes!');
 
-    end;
-end
+
+end;
 
 end.

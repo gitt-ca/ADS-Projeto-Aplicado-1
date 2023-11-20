@@ -196,23 +196,22 @@ object Form2: TForm2
       PasswordChar = #6
       TabOrder = 1
     end
-    object btnCadastro: TButton
+    object Button1: TButton
       Left = 108
-      Top = 327
-      Width = 117
-      Height = 25
-      Caption = 'Cadastre-se'
-      TabOrder = 2
-      OnClick = btnCadastroClick
-    end
-    object BtnEntrar: TBitBtn
-      Left = 108
-      Top = 283
+      Top = 296
       Width = 117
       Height = 25
       Caption = 'Entrar'
-      DisabledImageName = 'BtnEntrar'
+      TabOrder = 2
+    end
+    object btnCadastro: TButton
+      Left = 108
+      Top = 336
+      Width = 117
+      Height = 25
+      Caption = 'Cadastre-se'
       TabOrder = 3
+      OnClick = btnCadastroClick
     end
   end
 end
