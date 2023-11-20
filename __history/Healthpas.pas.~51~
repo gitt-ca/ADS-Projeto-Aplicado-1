@@ -60,37 +60,35 @@ unit Healthpas;
     end;
 
 procedure TForm2.BtnEntrarClick(Sender: TObject);
- begin
+var
+  strSQLResult: String;
+begin
+  LoginSQL.SQL.Text := 'SELECT senha FROM usuario WHERE usuario = :valor1';
+  LoginSQL.Params.ParamByName('valor1').Value := ediUser.Text;
+  LoginSQL.Open; // Use Open para executar a consulta SELECT
 
-     var
-
-     strSQLResult : String;
-
-    LoginSQL.SQL.Text := '(select senha from usuario where usuario = :valor1)';
-    LoginSQL.Params.ParamByName('valor1').Value := ediUser.text;
-    LoginSQL.ExecSQL;
-
-    if not LoginSQL.IsEmpty then
+  if not LoginSQL.IsEmpty then
+  begin
     strSQLResult := LoginSQL.FieldByName('senha').AsString;
 
-    else if strSQLResult = edtPass.Text then
+    if strSQLResult = edtPass.Text then
+    begin
+      Form4 := TForm4.Create(nil);
+      try
+        Form4.ShowModal;
+      finally
+        Form4.Free; // Liberar ram
+      end;
 
-    Form4:= TForm4.Create(nil);
-    try
-      Form4.ShowModal;
-    finally
-        FreeAndNil(Form4);
-    end;
-    
+    end
+    else
+      ShowMessage('Senha incorreta!');
+  end
+  else
+    ShowMessage('Usuário não encontrado!');
 
-    ShowMessage('Registro inserido com sucesso!');
+  LoginSQL.Close; // Fecha sql
+end;
 
-    else 
-
-      ShowMessage('Dados incorretos!');
-      
-
-
-    end;
 
 end.
