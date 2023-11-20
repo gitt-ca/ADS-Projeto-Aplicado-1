@@ -80,7 +80,6 @@ begin
         Form4.Free; // Liberar ram
       end;
 
-      ShowMessage('Login bem-sucedido!');
     end
     else
       ShowMessage('Senha incorreta!');

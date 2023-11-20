@@ -1,9 +1,9 @@
 object Form4: TForm4
-  Left = 0
-  Top = 0
+  Left = 581
+  Top = 1182
   Caption = 'Form4'
-  ClientHeight = 442
-  ClientWidth = 737
+  ClientHeight = 720
+  ClientWidth = 1312
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,21 +11,22 @@ object Form4: TForm4
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = mm1
+  Position = poDesigned
   TextHeight = 15
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 737
-    Height = 89
+    Width = 1312
+    Height = 73
     Align = alTop
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 733
+    ExplicitWidth = 737
     object btn1: TBitBtn
       Left = 105
       Top = 1
       Width = 104
-      Height = 87
+      Height = 71
       Align = alLeft
       Caption = 'Agendamentos'
       Glyph.Data = {
@@ -249,12 +250,13 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 0
+      ExplicitHeight = 87
     end
     object btn2: TBitBtn
       Left = 1
       Top = 1
       Width = 104
-      Height = 87
+      Height = 71
       Align = alLeft
       Caption = 'Pacientes'
       Glyph.Data = {
@@ -478,11 +480,14 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 1
+      ExplicitHeight = 87
     end
   end
   object clndrvwCalendario: TCalendarView
-    Left = 435
-    Top = 97
+    Left = 0
+    Top = 72
+    Width = 593
+    Height = 649
     Date = 45248.000000000000000000
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
