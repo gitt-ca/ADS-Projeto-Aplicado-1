@@ -193,6 +193,7 @@ object Form2: TForm2
       Top = 246
       Width = 234
       Height = 23
+      ImeName = 'edtPass'
       PasswordChar = #6
       TabOrder = 1
     end
@@ -213,6 +214,29 @@ object Form2: TForm2
       Caption = 'Entrar'
       DisabledImageName = 'BtnEntrar'
       TabOrder = 3
+      OnClick = BtnEntrarClick
     end
+  end
+  object LoginSQL: TFDQuery
+    Connection = FDConnection2
+    Left = 24
+    Top = 14
+  end
+  object FDConnection2: TFDConnection
+    Params.Strings = (
+      'Database=healthfamilycenter'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 392
+    Top = 104
+  end
+  object FDPhysMySQLDriverLink2: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
+      'ibmySQL.dll'
+    Left = 528
+    Top = 104
   end
 end

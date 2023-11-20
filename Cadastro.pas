@@ -56,6 +56,7 @@ begin
     UsuarioTable.Params.ParamByName('valor2').Value := edtPass.text;
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
+    UsuarioTable.Close;
     end
 
   else
