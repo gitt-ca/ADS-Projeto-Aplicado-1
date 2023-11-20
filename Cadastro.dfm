@@ -10,6 +10,7 @@ object Form3: TForm3
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poDesigned
   TextHeight = 15
   object lbl1: TLabel
     Left = 400
@@ -122,7 +123,7 @@ object Form3: TForm3
       ParentFont = False
     end
     object lbl8: TLabel
-      Left = 151
+      Left = 141
       Top = 157
       Width = 36
       Height = 13
@@ -137,7 +138,7 @@ object Form3: TForm3
       ParentFont = False
     end
     object lbl9: TLabel
-      Left = 157
+      Left = 141
       Top = 205
       Width = 30
       Height = 13
@@ -182,7 +183,7 @@ object Form3: TForm3
       ParentFont = False
     end
     object lbl12: TLabel
-      Left = 126
+      Left = 116
       Top = 253
       Width = 89
       Height = 13
@@ -216,6 +217,7 @@ object Form3: TForm3
       Height = 25
       Caption = 'Confirmar'
       TabOrder = 2
+      OnClick = btn2Click
     end
     object edt1: TEdit
       Left = 47

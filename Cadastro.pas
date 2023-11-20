@@ -23,6 +23,7 @@ type
     btn2: TButton;
     lbl12: TLabel;
     edt1: TEdit;
+    procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,4 +33,12 @@ var
   Form3: TForm3;
 implementation
 {$R *.dfm}
+procedure TForm3.btn2Click(Sender: TObject);
+begin
+  with UsuarioTable do
+    begin
+
+    end;
+end;
+
 end.

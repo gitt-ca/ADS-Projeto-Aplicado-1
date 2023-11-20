@@ -4,8 +4,8 @@ uses
   Vcl.Forms,
   Healthpas in 'Healthpas.pas' {Form2},
   Cadastro in 'Cadastro.pas' {Form3},
-  //unitCadAgendamentos in '..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\unitCadAgendamentos.pas' {FormCadAgendamento},
-  Principal in 'Principal.pas' {Form4};
+  Principal in 'Principal.pas' {Form4},
+  DataModel in 'DataModel.pas' {DataModule2: TDataModule};
 
 {$R *.res}
 
@@ -14,6 +14,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TDataModule2, DataModule2);
   //Application.CreateForm(TFormCadAgendamento, FormCadAgendamento);
   Application.CreateForm(TForm4, Form4);
   Application.Run;

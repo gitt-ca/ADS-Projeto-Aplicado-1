@@ -1,0 +1,25 @@
+object DataModule2: TDataModule2
+  Height = 480
+  Width = 640
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=healthfamilycenter'
+      'User_Name=root'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 256
+    Top = 80
+  end
+  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
+      'SQL.dll'
+    Left = 56
+    Top = 56
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 72
+    Top = 240
+  end
+end
