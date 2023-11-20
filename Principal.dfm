@@ -20,7 +20,7 @@ object Form4: TForm4
     Align = alTop
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 624
+    ExplicitWidth = 733
     object btn1: TBitBtn
       Left = 105
       Top = 1
@@ -481,8 +481,8 @@ object Form4: TForm4
     end
   end
   object clndrvwCalendario: TCalendarView
-    Left = 248
-    Top = 95
+    Left = 435
+    Top = 97
     Date = 45248.000000000000000000
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
