@@ -44,26 +44,45 @@ implementation
 {$R *.dfm}
 procedure TForm3.btn2Click(Sender: TObject);
 begin
+  // Verifica se os campos de usuário e senha estão preenchidos
+  if (Trim(edtUser.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
+  begin
+    ShowMessage('Por favor, preencha todos os campos.');
+    Exit; // Sai do procedimento caso algum campo esteja vazio
+  end;
 
 
-  //OBS: criar funcao para validação de campos preenchidos ou mais IFs
+  var
+  strSQLResult: String;
 
-  if edtPass.Text = edtPassAgain.text then
+  UsuarioTable.SQL.Text := 'SELECT usuario FROM usuario WHERE usuario = :valor1';
+  UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
+  UsuarioTable.Open; // Use Open para executar a consulta SELECT
 
-    begin
-    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario) VALUES(:valor1, :valor2, 1, 1 )';
-    UsuarioTable.Params.ParamByName('valor1').Value := edtUser.text;
-    UsuarioTable.Params.ParamByName('valor2').Value := edtPass.text;
+  if not UsuarioTable.IsEmpty then
+  begin
+    strSQLResult := UsuarioTable.FieldByName('usuario').AsString;
+  end;
+
+  if edtUser.Text = strSQLResult then
+  begin
+    ShowMessage('Usuario já existe no banco!');
+  end;
+
+
+  // Verifica se as senhas digitadas são iguais
+  if edtPass.Text = edtPassAgain.Text then
+  begin
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, 1, 1)';
+    UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
+    UsuarioTable.Params.ParamByName('valor2').Value := edtPass.Text;
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
     UsuarioTable.Close;
-    end
-
+  end
   else
-
-  ShowMessage('Senha não são equivalentes!');
-
-
+    ShowMessage('As senhas não são equivalentes!');
 end;
+
 
 end.
