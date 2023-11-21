@@ -63,15 +63,34 @@ procedure TForm2.BtnEntrarClick(Sender: TObject);
 var
   strSQLResult: String;
 begin
+  LoginSQL.SQL.Text := 'SELECT senha FROM usuario WHERE usuario = :valor1';
+  LoginSQL.Params.ParamByName('valor1').Value := ediUser.Text;
+  LoginSQL.Open; // Use Open para executar a consulta SELECT
 
+  if not LoginSQL.IsEmpty then
+  begin
+    strSQLResult := LoginSQL.FieldByName('senha').AsString;
 
+    if strSQLResult = edtPass.Text then
+    begin
       Form4 := TForm4.Create(nil);
       try
         Form4.ShowModal;
+        Self.Close;
       finally
-        Form4.Free; // Liberar ram
+        FreeAndNil(Form4); // Liberar ram
+
       end;
 
+    end
+    else
+      ShowMessage('Senha incorreta!');
+  end
+  else
+    ShowMessage('Usuário não encontrado!');
+
+  LoginSQL.Close; // Fecha sql
 end;
+
 
 end.

@@ -75,9 +75,12 @@ begin
     begin
       Form4 := TForm4.Create(nil);
       try
+
         Form4.ShowModal;
+        Form2.Close;
       finally
-        Form4.Free; // Liberar ram
+        FreeAndNil(Form4); // Liberar ram
+
       end;
 
     end
@@ -89,5 +92,6 @@ begin
 
   LoginSQL.Close; // Fecha sql
 end;
+
 
 end.

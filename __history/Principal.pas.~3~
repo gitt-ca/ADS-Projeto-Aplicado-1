@@ -11,6 +11,12 @@ type
     pnl1: TPanel;
     btn1: TBitBtn;
     btn2: TBitBtn;
+    mm1: TMainMenu;
+    Sistema1: TMenuItem;
+    Sair1: TMenuItem;
+    Sair2: TMenuItem;
+    Pacientes1: TMenuItem;
+    Pacientes2: TMenuItem;
     clndrvwCalendario: TCalendarView;
 
   private

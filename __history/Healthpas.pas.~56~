@@ -75,12 +75,13 @@ begin
     begin
       Form4 := TForm4.Create(nil);
       try
+        Form2.Close;
         Form4.ShowModal;
       finally
-        Form4.Free; // Utilize Free ao invés de FreeAndNil para liberar a memória
+        FreeAndNil(Form4); // Liberar ram
+
       end;
 
-      ShowMessage('Login bem-sucedido!');
     end
     else
       ShowMessage('Senha incorreta!');
@@ -88,7 +89,7 @@ begin
   else
     ShowMessage('Usuário não encontrado!');
 
-  LoginSQL.Close; // Não se esqueça de fechar a consulta após utilizá-la
+  LoginSQL.Close; // Fecha sql
 end;
 
 

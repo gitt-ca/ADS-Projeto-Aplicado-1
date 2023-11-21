@@ -2,31 +2,30 @@ object Form4: TForm4
   Left = 581
   Top = 1182
   Caption = 'Form4'
-  ClientHeight = 772
-  ClientWidth = 1327
+  ClientHeight = 728
+  ClientWidth = 1236
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Menu = mm1
   Position = poDesigned
   TextHeight = 15
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 1327
-    Height = 73
+    Width = 1236
+    Height = 86
     Align = alTop
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1308
+    ExplicitWidth = 1327
     object btn1: TBitBtn
       Left = 105
       Top = 1
       Width = 104
-      Height = 71
+      Height = 84
       Align = alLeft
       Caption = 'Agendamentos'
       Glyph.Data = {
@@ -250,12 +249,13 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 0
+      ExplicitHeight = 71
     end
     object btn2: TBitBtn
       Left = 1
       Top = 1
       Width = 104
-      Height = 71
+      Height = 84
       Align = alLeft
       Caption = 'Pacientes'
       Glyph.Data = {
@@ -479,13 +479,14 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 1
+      ExplicitHeight = 71
     end
   end
   object clndrvwCalendario: TCalendarView
-    Left = 0
-    Top = 120
-    Width = 481
-    Height = 617
+    Left = 40
+    Top = 139
+    Width = 409
+    Height = 534
     Date = 45248.000000000000000000
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -504,24 +505,5 @@ object Form4: TForm4
     HeaderInfo.Font.Style = []
     ParentFont = False
     TabOrder = 1
-  end
-  object mm1: TMainMenu
-    Left = 232
-    Top = 24
-    object Sistema1: TMenuItem
-      Caption = 'Sistema'
-      object Sair1: TMenuItem
-        Caption = 'Sair'
-      end
-    end
-    object Sair2: TMenuItem
-      Caption = 'Cadastros'
-      object Pacientes1: TMenuItem
-        Caption = 'Pacientes'
-      end
-      object Pacientes2: TMenuItem
-        Caption = 'Agendamentos'
-      end
-    end
   end
 end

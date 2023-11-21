@@ -77,7 +77,7 @@ begin
       try
         Form4.ShowModal;
       finally
-        Form4.Free; // Liberar ram
+        FreeAndNil(Form4); // Liberar ram
       end;
 
     end
