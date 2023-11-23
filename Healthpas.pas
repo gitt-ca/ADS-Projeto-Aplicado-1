@@ -52,11 +52,9 @@ unit Healthpas;
   procedure TForm2.btnCadastroClick(Sender: TObject);
     begin
     Form3:= TForm3.Create(nil);
-    try
-      Form3.ShowModal;
-    finally
-        FreeAndNil(Form3);
-    end;
+    Form3.Show;
+    Form3.Position := poScreenCenter;
+
     end;
 
 procedure TForm2.BtnEntrarClick(Sender: TObject);
@@ -78,9 +76,7 @@ begin
         Form4.ShowModal;
       finally
         FreeAndNil(Form4); // Liberar ram
-
       end;
-
     end
     else
       ShowMessage('Senha incorreta!');

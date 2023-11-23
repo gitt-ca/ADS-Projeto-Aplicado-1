@@ -1,10 +1,11 @@
 object Form4: TForm4
-  Left = 581
+  Left = 0
   Top = 1182
   Caption = 'Form4'
-  ClientHeight = 728
-  ClientWidth = 1236
+  ClientHeight = 576
+  ClientWidth = 952
   Color = clBtnFace
+  DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -15,17 +16,17 @@ object Form4: TForm4
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 1236
+    Width = 952
     Height = 86
     Align = alTop
+    BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1327
     object btn1: TBitBtn
       Left = 105
       Top = 1
       Width = 104
-      Height = 84
+      Height = 80
       Align = alLeft
       Caption = 'Agendamentos'
       Glyph.Data = {
@@ -249,13 +250,13 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 0
-      ExplicitHeight = 71
+      OnClick = btn1Click
     end
     object btn2: TBitBtn
       Left = 1
       Top = 1
       Width = 104
-      Height = 84
+      Height = 80
       Align = alLeft
       Caption = 'Pacientes'
       Glyph.Data = {
@@ -479,31 +480,6 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 1
-      ExplicitHeight = 71
     end
-  end
-  object clndrvwCalendario: TCalendarView
-    Left = 40
-    Top = 139
-    Width = 409
-    Height = 534
-    Date = 45248.000000000000000000
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    HeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
-    HeaderInfo.DaysOfWeekFont.Color = clWindowText
-    HeaderInfo.DaysOfWeekFont.Height = -13
-    HeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
-    HeaderInfo.DaysOfWeekFont.Style = []
-    HeaderInfo.Font.Charset = DEFAULT_CHARSET
-    HeaderInfo.Font.Color = clWindowText
-    HeaderInfo.Font.Height = -20
-    HeaderInfo.Font.Name = 'Segoe UI'
-    HeaderInfo.Font.Style = []
-    ParentFont = False
-    TabOrder = 1
   end
 end

@@ -2,8 +2,8 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 442
-  ClientWidth = 646
+  ClientHeight = 441
+  ClientWidth = 642
   Color = clHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -203,7 +203,7 @@ object Form2: TForm2
       Width = 117
       Height = 25
       Caption = 'Cadastre-se'
-      TabOrder = 2
+      TabOrder = 3
       OnClick = btnCadastroClick
     end
     object BtnEntrar: TBitBtn
@@ -213,7 +213,7 @@ object Form2: TForm2
       Height = 25
       Caption = 'Entrar'
       DisabledImageName = 'BtnEntrar'
-      TabOrder = 3
+      TabOrder = 2
       OnClick = BtnEntrarClick
     end
   end

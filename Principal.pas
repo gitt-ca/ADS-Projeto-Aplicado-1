@@ -11,7 +11,7 @@ type
     pnl1: TPanel;
     btn1: TBitBtn;
     btn2: TBitBtn;
-    clndrvwCalendario: TCalendarView;
+    procedure btn1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -26,7 +26,18 @@ implementation
 
 {$R *.dfm}
 
+uses
+   TelaAgendamento;
 
+procedure TForm4.btn1Click(Sender: TObject);
+begin
+ Form5:= TForm5.Create(nil);
+ try
+ Form5.ShowModal;
+ finally
+ FreeAndNil(Form5);
+ end;
+end;
 
 end.
 
