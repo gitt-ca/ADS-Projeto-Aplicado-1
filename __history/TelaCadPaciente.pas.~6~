@@ -19,8 +19,12 @@ type
     lbl3: TLabel;
     lbl4: TLabel;
     lbl5: TLabel;
+    lbl6: TLabel;
     pnl1: TPanel;
     lbl7: TLabel;
+    dbnvgr1: TDBNavigator;
+    dbgrd1: TDBGrid;
+    edtBusca: TEdit;
     edtNomePaciente: TEdit;
     edtTelefonePaciente: TEdit;
     edtEmailPaciente: TEdit;
@@ -59,7 +63,7 @@ begin
      (edtIdadePaciente.Text <> '') and (edtEnderecoPaciente.Text <> '') then
   begin
     // Inserir dados no banco de dados usando um componente de query, como TFDQuery
-    DataModule.fdqryQueryPaci.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
+    DataModule.FDQuery1.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
       'VALUES (:NomeUsuario, :Idade, :CPF, :endereco, :email, :telefone)';
     DataModule.fdqryQueryPaci.ParamByName('NomeUsuario').AsString := edtNomePaciente.Text;
     DataModule.fdqryQueryPaci.ParamByName('Idade').AsInteger := StrToIntDef(edtIdadePaciente.Text, 0);

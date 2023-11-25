@@ -19,8 +19,12 @@ type
     lbl3: TLabel;
     lbl4: TLabel;
     lbl5: TLabel;
+    lbl6: TLabel;
     pnl1: TPanel;
     lbl7: TLabel;
+    dbnvgr1: TDBNavigator;
+    dbgrd1: TDBGrid;
+    edtBusca: TEdit;
     edtNomePaciente: TEdit;
     edtTelefonePaciente: TEdit;
     edtEmailPaciente: TEdit;

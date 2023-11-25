@@ -19,8 +19,12 @@ type
     lbl3: TLabel;
     lbl4: TLabel;
     lbl5: TLabel;
+    lbl6: TLabel;
     pnl1: TPanel;
     lbl7: TLabel;
+    dbnvgr1: TDBNavigator;
+    dbgrd1: TDBGrid;
+    edtBusca: TEdit;
     edtNomePaciente: TEdit;
     edtTelefonePaciente: TEdit;
     edtEmailPaciente: TEdit;
@@ -59,17 +63,17 @@ begin
      (edtIdadePaciente.Text <> '') and (edtEnderecoPaciente.Text <> '') then
   begin
     // Inserir dados no banco de dados usando um componente de query, como TFDQuery
-    DataModule.fdqryQueryPaci.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
+    DataModule.FDQuery1.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
       'VALUES (:NomeUsuario, :Idade, :CPF, :endereco, :email, :telefone)';
-    DataModule.fdqryQueryPaci.ParamByName('NomeUsuario').AsString := edtNomePaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('Idade').AsInteger := StrToIntDef(edtIdadePaciente.Text, 0);
-    DataModule.fdqryQueryPaci.ParamByName('CPF').AsString := edtCpfPaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('endereco').AsString := edtEnderecoPaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('email').AsString := edtEmailPaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('telefone').AsString := edtTelefonePaciente.Text;
+    DataModule.FDQuery1.ParamByName('NomeUsuario').AsString := edtNomePaciente.Text;
+    DataModule.FDQuery1.ParamByName('Idade').AsInteger := StrToIntDef(edtIdadePaciente.Text, 0);
+    DataModule.FDQuery1.ParamByName('CPF').AsString := edtCpfPaciente.Text;
+    DataModule.FDQuery1.ParamByName('endereco').AsString := edtEnderecoPaciente.Text;
+    DataModule.FDQuery1.ParamByName('email').AsString := edtEmailPaciente.Text;
+    DataModule.FDQuery1.ParamByName('telefone').AsString := edtTelefonePaciente.Text;
 
     try
-      DataModule.fdqryQueryPaci.ExecSQL; // Executa a inserção no banco de dados
+      DataModule.FDQuery1.ExecSQL; // Executa a inserção no banco de dados
 
       ShowMessage('Dados inseridos com sucesso!');
       // Limpar os campos após a inserção, se necessário

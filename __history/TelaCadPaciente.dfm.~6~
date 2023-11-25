@@ -53,6 +53,13 @@ object Form6: TForm6
     Height = 15
     Caption = 'Endereco'
   end
+  object lbl6: TLabel
+    Left = 423
+    Top = 87
+    Width = 100
+    Height = 15
+    Caption = 'Busca de pacientes'
+  end
   object pnl1: TPanel
     Left = 0
     Top = 0

@@ -32,6 +32,7 @@ type
     conConCadPaci: TFDConnection;
     fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink;
     fdqryQueryPaci: TFDQuery;
+    lbl6: TLabel;
     procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
