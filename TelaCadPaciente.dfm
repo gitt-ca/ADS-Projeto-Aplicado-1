@@ -12,46 +12,53 @@ object Form6: TForm6
   Font.Style = []
   TextHeight = 15
   object lbl1: TLabel
-    Left = 14
-    Top = 91
-    Width = 11
+    Left = 8
+    Top = 318
+    Width = 29
     Height = 15
-    Caption = 'ID'
+    Caption = 'Idade'
   end
   object lbl2: TLabel
-    Left = 14
-    Top = 147
+    Left = 8
+    Top = 91
     Width = 89
     Height = 15
     Caption = 'Nome Completo'
   end
   object lbl3: TLabel
-    Left = 14
-    Top = 199
-    Width = 37
+    Left = 8
+    Top = 147
+    Width = 44
     Height = 15
-    Caption = 'Celular'
+    Caption = 'Telefone'
   end
   object lbl4: TLabel
-    Left = 147
-    Top = 91
+    Left = 8
+    Top = 257
     Width = 21
     Height = 15
     Caption = 'CPF'
   end
   object lbl5: TLabel
-    Left = 127
-    Top = 199
-    Width = 93
+    Left = 8
+    Top = 207
+    Width = 29
     Height = 15
-    Caption = 'Data de Cadastro '
+    Caption = 'Email'
   end
   object lbl6: TLabel
-    Left = 279
-    Top = 91
+    Left = 423
+    Top = 87
     Width = 100
     Height = 15
     Caption = 'Busca de pacientes'
+  end
+  object lblEndereco: TLabel
+    Left = 192
+    Top = 91
+    Width = 62
+    Height = 15
+    Caption = 'lblEndereco'
   end
   object pnl1: TPanel
     Left = 0
@@ -64,9 +71,9 @@ object Form6: TForm6
     object lbl7: TLabel
       Left = 14
       Top = 22
-      Width = 202
+      Width = 191
       Height = 25
-      Caption = 'Cadastro Pacientes'
+      Caption = 'Cadastro Paciente'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -21
@@ -83,62 +90,13 @@ object Form6: TForm6
       TabOrder = 0
     end
   end
-  object dbedtid: TDBEdit
-    Left = 14
-    Top = 108
-    Width = 36
-    Height = 20
-    DataField = 'id'
-    DataSource = DM.dsPaciente
-    ReadOnly = True
-    TabOrder = 1
-  end
-  object dbedtnome: TDBEdit
-    Left = 14
-    Top = 164
-    Width = 217
-    Height = 20
-    DataField = 'nome'
-    DataSource = DM.dsPaciente
-    TabOrder = 2
-  end
-  object dbedtcelular: TDBEdit
-    Left = 14
-    Top = 216
-    Width = 92
-    Height = 20
-    DataField = 'celular'
-    DataSource = DM.dsPaciente
-    MaxLength = 15
-    TabOrder = 3
-  end
-  object dbedtdata_cadastro: TDBEdit
-    Left = 127
-    Top = 216
-    Width = 69
-    Height = 20
-    DataField = 'data_cadastro'
-    DataSource = DM.dsPaciente
-    MaxLength = 8
-    ReadOnly = True
-    TabOrder = 4
-  end
-  object dbedtcpf: TDBEdit
-    Left = 147
-    Top = 108
-    Width = 84
-    Height = 20
-    DataField = 'cpf'
-    DataSource = DM.dsPaciente
-    TabOrder = 5
-  end
   object dbgrd1: TDBGrid
-    Left = 278
-    Top = 147
+    Left = 349
+    Top = 134
     Width = 279
     Height = 206
     DataSource = DM.dsPaciente
-    TabOrder = 6
+    TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
@@ -159,10 +117,81 @@ object Form6: TForm6
       end>
   end
   object edtBusca: TEdit
-    Left = 278
+    Left = 348
     Top = 108
     Width = 272
     Height = 20
+    TabOrder = 2
+  end
+  object edtNomePaciente: TEdit
+    Left = 8
+    Top = 108
+    Width = 121
+    Height = 23
+    TabOrder = 3
+  end
+  object edtTelefonePaciente: TEdit
+    Left = 8
+    Top = 160
+    Width = 121
+    Height = 23
+    TabOrder = 4
+  end
+  object edtEmailPaciente: TEdit
+    Left = 8
+    Top = 220
+    Width = 121
+    Height = 23
+    TabOrder = 5
+  end
+  object edtCpfPaciente: TEdit
+    Left = 8
+    Top = 270
+    Width = 121
+    Height = 23
+    TabOrder = 6
+  end
+  object edtIdadePaciente: TEdit
+    Left = 8
+    Top = 331
+    Width = 121
+    Height = 23
     TabOrder = 7
+  end
+  object edtEnderecoPaciente: TEdit
+    Left = 168
+    Top = 108
+    Width = 121
+    Height = 23
+    TabOrder = 8
+  end
+  object btnSalvar: TBitBtn
+    Left = 192
+    Top = 330
+    Width = 75
+    Height = 25
+    Caption = 'Salvar'
+    TabOrder = 9
+    OnClick = btnSalvarClick
+  end
+  object conConCadPaci: TFDConnection
+    Params.Strings = (
+      'User_Name=root'
+      'Database=healthfamilycenter'
+      'DriverID=MySQL')
+    Left = 312
+    Top = 368
+  end
+  object fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
+      'ibmySQL.dll'
+    Left = 424
+    Top = 368
+  end
+  object fdqryQueryPaci: TFDQuery
+    Connection = conConCadPaci
+    Left = 544
+    Top = 368
   end
 end
