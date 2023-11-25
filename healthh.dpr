@@ -6,7 +6,7 @@ uses
   Cadastro in 'Cadastro.pas' {Form3},
   Principal in 'Principal.pas' {Form4},
   TelaAgendamento in 'TelaAgendamento.pas' {Form5},
-  TelaPaciente in 'TelaPaciente.pas' {Form6};
+  TelaCadPaciente in 'TelaCadPaciente.pas' {Form6};
 
 {$R *.res}
 

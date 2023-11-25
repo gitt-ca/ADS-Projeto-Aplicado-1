@@ -29,7 +29,7 @@ implementation
 {$R *.dfm}
 
 uses
-   TelaAgendamento, TelaPaciente;
+   TelaAgendamento, TelaCadPaciente;
 
 procedure TForm4.btn1Click(Sender: TObject);
 begin

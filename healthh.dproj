@@ -113,7 +113,7 @@
             <Form>Form5</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="TelaPaciente.pas">
+        <DCCReference Include="TelaCadPaciente.pas">
             <Form>Form6</Form>
             <FormType>dfm</FormType>
         </DCCReference>
