@@ -6,7 +6,8 @@ uses
   Cadastro in 'Cadastro.pas' {Form3},
   Principal in 'Principal.pas' {Form4},
   TelaAgendamento in 'TelaAgendamento.pas' {Form5},
-  TelaCadPaciente in 'TelaCadPaciente.pas' {Form6};
+  TelaCadPaciente in 'TelaCadPaciente.pas' {Form6},
+  TelaCadMedic in 'TelaCadMedic.pas' {Form7};
 
 {$R *.res}
 
@@ -17,6 +18,7 @@ begin
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm5, Form5);
   Application.CreateForm(TForm6, Form6);
+  Application.CreateForm(TForm7, Form7);
   //Application.CreateForm(TFormCadAgendamento, FormCadAgendamento);
   Application.CreateForm(TForm4, Form4);
   Application.Run;

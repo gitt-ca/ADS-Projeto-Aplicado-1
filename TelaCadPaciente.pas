@@ -10,7 +10,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, FireDAC.Phys.MySQLDef,
   FireDAC.Phys.MySQL, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Imaging.pngimage;
 
 type
   TForm6 = class(TForm)
@@ -32,6 +32,7 @@ type
     conConCadPaci: TFDConnection;
     fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink;
     fdqryQueryPaci: TFDQuery;
+    imgLogoPrincipal: TImage;
     procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
@@ -62,10 +63,8 @@ begin
     fdqryQueryPaci.Params.ParamByName('endereco').Value := edtEnderecoPaciente.Text;
     fdqryQueryPaci.Params.ParamByName('email').Value := edtEmailPaciente.Text;
     fdqryQueryPaci.Params.ParamByName('telefone').Value := edtTelefonePaciente.Text;
-
     try
       fdqryQueryPaci.ExecSQL; // Executa a inserção no banco de dados
-
       ShowMessage('Dados inseridos com sucesso!');
       // Limpar os campos após a inserção, se necessário
       edtNomePaciente.Clear;
@@ -74,7 +73,6 @@ begin
       edtCpfPaciente.Clear;
       edtIdadePaciente.Clear;
       edtEnderecoPaciente.Clear;
-
       // Atualizar o DBGrid com os dados inseridos, se necessário
       // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
     except

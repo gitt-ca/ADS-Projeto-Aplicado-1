@@ -35,9 +35,9 @@ object Form5: TForm5
   object lbl6: TLabel
     Left = 15
     Top = 235
-    Width = 40
+    Width = 30
     Height = 15
-    Caption = 'M'#233'dico'
+    Caption = 'Titulo'
   end
   object lblAssunto: TLabel
     Left = 15
@@ -132,7 +132,7 @@ object Form5: TForm5
     Left = 15
     Top = 317
     Width = 242
-    Height = 23
+    Height = 88
     TabOrder = 6
   end
   object FDConnection4: TFDConnection

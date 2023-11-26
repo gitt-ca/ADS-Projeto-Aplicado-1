@@ -139,7 +139,7 @@ object Form3: TForm3
     end
     object lbl9: TLabel
       Left = 141
-      Top = 205
+      Top = 253
       Width = 30
       Height = 13
       Caption = 'Senha'
@@ -184,7 +184,7 @@ object Form3: TForm3
     end
     object lbl12: TLabel
       Left = 116
-      Top = 253
+      Top = 301
       Width = 89
       Height = 13
       Caption = 'Repita sua Senha'
@@ -193,6 +193,21 @@ object Form3: TForm3
       Font.Height = -11
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 152
+      Top = 205
+      Width = 19
+      Height = 13
+      Caption = 'CPF'
+      Color = clBtnShadow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMenuText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentColor = False
       ParentFont = False
     end
     object edtUser: TEdit
@@ -204,15 +219,15 @@ object Form3: TForm3
     end
     object edtPass: TEdit
       Left = 47
-      Top = 224
+      Top = 272
       Width = 234
       Height = 23
       PasswordChar = #6
       TabOrder = 1
     end
     object btn2: TButton
-      Left = 108
-      Top = 341
+      Left = 106
+      Top = 360
       Width = 117
       Height = 25
       Caption = 'Confirmar'
@@ -221,11 +236,19 @@ object Form3: TForm3
     end
     object edtPassAgain: TEdit
       Left = 47
-      Top = 272
+      Top = 320
       Width = 234
       Height = 23
       PasswordChar = #6
       TabOrder = 3
+    end
+    object Edit1: TEdit
+      Left = 47
+      Top = 224
+      Width = 234
+      Height = 23
+      PasswordChar = #6
+      TabOrder = 4
     end
   end
   object UsuarioTable: TFDQuery

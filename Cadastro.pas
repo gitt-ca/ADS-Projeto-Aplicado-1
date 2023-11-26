@@ -32,6 +32,8 @@ type
     FDConnection1: TFDConnection;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     edtPassAgain: TEdit;
+    Edit1: TEdit;
+    Label1: TLabel;
     procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
