@@ -6,9 +6,6 @@
         <Projects Include="healthh.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -26,23 +23,14 @@
     <Target Name="healthh:Make">
         <MSBuild Projects="healthh.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Clinica">
-        <MSBuild Projects="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj"/>
-    </Target>
-    <Target Name="Clinica:Clean">
-        <MSBuild Projects="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Clinica:Make">
-        <MSBuild Projects="..\..\..\..\Área de Trabalho\Sistema_de_Clinica_Medica-main\Sistema_Clinica_Medica\Clinica.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="healthh;Clinica"/>
+        <CallTarget Targets="healthh"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="healthh:Clean;Clinica:Clean"/>
+        <CallTarget Targets="healthh:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="healthh:Make;Clinica:Make"/>
+        <CallTarget Targets="healthh:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
