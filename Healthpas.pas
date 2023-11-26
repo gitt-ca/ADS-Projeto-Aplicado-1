@@ -4,7 +4,12 @@ unit Healthpas;
     uses
     Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
     Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-    Vcl.Imaging.pngimage, Vcl.Buttons;
+    Vcl.Imaging.pngimage, Vcl.Buttons, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+    FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+    FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+    FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def,
+    FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef,
+    FireDAC.VCLUI.Wait;
   type
   TForm2 = class(TForm)
     Label3: TLabel;
@@ -23,7 +28,11 @@ unit Healthpas;
     edtPass: TEdit;
     btnCadastro: TButton;
     BtnEntrar: TBitBtn;
+    LoginSQL: TFDQuery;
+    FDConnection2: TFDConnection;
+    FDPhysMySQLDriverLink2: TFDPhysMySQLDriverLink;
     procedure btnCadastroClick(Sender: TObject);
+    procedure BtnEntrarClick(Sender: TObject);
 
   private
 
@@ -38,16 +47,44 @@ unit Healthpas;
   {$R *.dfm}
 
     uses
-      Cadastro;
+      Cadastro,Principal;
 
   procedure TForm2.btnCadastroClick(Sender: TObject);
     begin
     Form3:= TForm3.Create(nil);
-    try
-      Form3.ShowModal;
-    finally
-        FreeAndNil(Form3);
+    Form3.Show;
+    Form3.Position := poScreenCenter;
+
     end;
-    end;
+
+procedure TForm2.BtnEntrarClick(Sender: TObject);
+var
+  strSQLResult: String;
+begin
+  LoginSQL.SQL.Text := 'SELECT senha FROM usuario WHERE usuario = :valor1';
+  LoginSQL.Params.ParamByName('valor1').Value := ediUser.Text;
+  LoginSQL.Open; // Use Open para executar a consulta SELECT
+
+  if not LoginSQL.IsEmpty then
+  begin
+    strSQLResult := LoginSQL.FieldByName('senha').AsString;
+
+    if strSQLResult = edtPass.Text then
+    begin
+      Form4 := TForm4.Create(nil);
+      try
+        Form4.ShowModal;
+      finally
+        FreeAndNil(Form4); // Liberar ram
+      end;
+    end
+    else
+      ShowMessage('Senha incorreta!');
+  end
+  else
+    ShowMessage('Usuário não encontrado!');
+  LoginSQL.Close; // Fecha sql
+end;
+
 
 end.

@@ -2,8 +2,8 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 442
-  ClientWidth = 646
+  ClientHeight = 441
+  ClientWidth = 642
   Color = clHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -193,6 +193,7 @@ object Form2: TForm2
       Top = 246
       Width = 234
       Height = 23
+      ImeName = 'edtPass'
       PasswordChar = #6
       TabOrder = 1
     end
@@ -202,7 +203,7 @@ object Form2: TForm2
       Width = 117
       Height = 25
       Caption = 'Cadastre-se'
-      TabOrder = 2
+      TabOrder = 3
       OnClick = btnCadastroClick
     end
     object BtnEntrar: TBitBtn
@@ -212,7 +213,30 @@ object Form2: TForm2
       Height = 25
       Caption = 'Entrar'
       DisabledImageName = 'BtnEntrar'
-      TabOrder = 3
+      TabOrder = 2
+      OnClick = BtnEntrarClick
     end
+  end
+  object LoginSQL: TFDQuery
+    Connection = FDConnection2
+    Left = 24
+    Top = 14
+  end
+  object FDConnection2: TFDConnection
+    Params.Strings = (
+      'Database=healthfamilycenter'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 392
+    Top = 104
+  end
+  object FDPhysMySQLDriverLink2: TFDPhysMySQLDriverLink
+    VendorLib = 
+      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
+      'ibmySQL.dll'
+    Left = 528
+    Top = 104
   end
 end
