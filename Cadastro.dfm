@@ -238,15 +238,14 @@ object Form3: TForm3
       'Database=healthfamilycenter'
       'User_Name=root'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 392
     Top = 104
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
-      'ibmySQL.dll'
+      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
+      'SQL.dll'
     Left = 528
     Top = 104
   end

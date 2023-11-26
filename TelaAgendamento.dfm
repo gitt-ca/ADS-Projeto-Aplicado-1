@@ -132,7 +132,7 @@ object Form5: TForm5
     Left = 15
     Top = 317
     Width = 242
-    Height = 108
+    Height = 23
     TabOrder = 6
   end
   object FDConnection4: TFDConnection
@@ -140,20 +140,20 @@ object Form5: TForm5
       'Database=healthfamilycenter'
       'User_Name=root'
       'DriverID=MySQL')
-    Left = 384
-    Top = 384
+    Left = 112
+    Top = 392
   end
   object FDPhysMySQLDriverLink4: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
-      'ibmySQL.dll'
-    Left = 520
-    Top = 376
+      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
+      'SQL.dll'
+    Left = 192
+    Top = 392
   end
   object FDQuery4: TFDQuery
     CachedUpdates = True
     Connection = FDConnection4
-    Left = 296
+    Left = 24
     Top = 392
   end
 end

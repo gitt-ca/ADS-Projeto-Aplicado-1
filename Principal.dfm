@@ -1552,7 +1552,7 @@ object Form4: TForm4
     BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 948
+    ExplicitWidth = 771
     object btn1: TBitBtn
       Left = 105
       Top = 1

@@ -60,6 +60,7 @@ object Form6: TForm6
     Height = 73
     Align = alTop
     TabOrder = 0
+    ExplicitTop = 5
     object lbl7: TLabel
       Left = 14
       Top = 22
@@ -76,7 +77,7 @@ object Form6: TForm6
   end
   object edtNomePaciente: TEdit
     Left = 269
-    Top = 101
+    Top = 105
     Width = 121
     Height = 23
     TabOrder = 1
@@ -117,8 +118,8 @@ object Form6: TForm6
     TabOrder = 6
   end
   object btnSalvar: TBitBtn
-    Left = 285
-    Top = 408
+    Left = 517
+    Top = 25
     Width = 75
     Height = 25
     Caption = 'Salvar'
@@ -130,6 +131,7 @@ object Form6: TForm6
       'User_Name=root'
       'Database=healthfamilycenter'
       'DriverID=MySQL')
+    Connected = True
     Left = 40
     Top = 96
   end
@@ -142,7 +144,7 @@ object Form6: TForm6
   end
   object fdqryQueryPaci: TFDQuery
     Connection = conConCadPaci
-    Left = 24
+    Left = 40
     Top = 240
   end
 end
