@@ -32,8 +32,8 @@ type
     FDConnection1: TFDConnection;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     edtPassAgain: TEdit;
-    Edit1: TEdit;
     Label1: TLabel;
+    editCPF: TEdit;
     procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
@@ -45,45 +45,52 @@ var
 implementation
 {$R *.dfm}
 procedure TForm3.btn2Click(Sender: TObject);
+var
+  strSQLResult: String;
+  temp1, temp2: Integer;
 begin
   // Verifica se os campos de usuário e senha estão preenchidos
-  if (Trim(edtUser.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
+  if (Trim(edtUser.Text) = '') or (Trim(editCPF.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
   begin
     ShowMessage('Por favor, preencha todos os campos.');
-    Exit; // Sai do procedimento caso algum campo esteja vazio
+    Exit;
   end;
 
-
-  var
-  strSQLResult: String;
-
+  // Verifica se o usuário já existe no banco
   UsuarioTable.SQL.Text := 'SELECT usuario FROM usuario WHERE usuario = :valor1';
   UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
-  UsuarioTable.Open; // Use Open para executar a consulta SELECT
+  UsuarioTable.Open;
 
-  if not UsuarioTable.IsEmpty then
-  begin
-    strSQLResult := UsuarioTable.FieldByName('usuario').AsString;
-  end;
+  try
+    if not UsuarioTable.IsEmpty then
+    begin
+      strSQLResult := UsuarioTable.FieldByName('usuario').AsString;
+      ShowMessage('Usuário já existe no banco!');
+      Exit;
+    end;
 
-  if edtUser.Text = strSQLResult then
-  begin
-    ShowMessage('Usuario já existe no banco!');
-  end;
+    // Verifica se as senhas digitadas são iguais
+    if edtPass.Text <> edtPassAgain.Text then
+    begin
+      ShowMessage('As senhas não são equivalentes!');
+      Exit;
+    end;
 
-
-  // Verifica se as senhas digitadas são iguais
-  if edtPass.Text = edtPassAgain.Text then
-  begin
-    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, 1, 1)';
+    temp1 := 1;
+    temp2 := 1;
+    // Insere novo usuário
+    UsuarioTable.Close; // Fecha a consulta anterior
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
     UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
-    UsuarioTable.Params.ParamByName('valor2').Value := edtPass.Text;
+    UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
+    UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
+    UsuarioTable.Params.ParamByName('valor4').Value := temp1; // Substitua 'temp1' pelo valor desejado
+    UsuarioTable.Params.ParamByName('valor5').Value := temp2; // Substitua 'temp2' pelo valor desejado
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
-    UsuarioTable.Close;
-  end
-  else
-    ShowMessage('As senhas não são equivalentes!');
+  finally
+    UsuarioTable.Close; // Garante que a tabela seja sempre fechada
+  end;
 end;
 
 

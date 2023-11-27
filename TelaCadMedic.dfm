@@ -13,7 +13,7 @@ object Form7: TForm7
   TextHeight = 15
   object imgLogoPrincipal: TImage
     Left = -202
-    Top = 75
+    Top = 79
     Width = 830
     Height = 367
     Center = True
@@ -1546,7 +1546,7 @@ object Form7: TForm7
     Top = 374
     Width = 29
     Height = 15
-    Caption = 'Idade'
+    Caption = 'Email'
   end
   object lbl2: TLabel
     Left = 412
@@ -1558,30 +1558,30 @@ object Form7: TForm7
   object lbl3: TLabel
     Left = 412
     Top = 150
-    Width = 44
-    Height = 15
-    Caption = 'Telefone'
-  end
-  object lbl4: TLabel
-    Left = 412
-    Top = 313
     Width = 21
     Height = 15
     Caption = 'CPF'
   end
-  object lbl5: TLabel
+  object lbl4: TLabel
+    Left = 412
+    Top = 313
+    Width = 39
+    Height = 15
+    Caption = 'Fun'#231#227'o'
+  end
+  object edtCRM: TLabel
     Left = 412
     Top = 208
-    Width = 29
+    Width = 26
     Height = 15
-    Caption = 'Email'
+    Caption = 'CRM'
   end
   object lblEndereco: TLabel
     Left = 412
     Top = 263
-    Width = 49
+    Width = 71
     Height = 15
-    Caption = 'Endereco'
+    Caption = 'Especialidade'
   end
   object pnl1: TPanel
     Left = 0
@@ -1589,7 +1589,7 @@ object Form7: TForm7
     Width = 628
     Height = 73
     Align = alTop
-    TabOrder = 0
+    TabOrder = 7
     ExplicitWidth = 624
     object lbl7: TLabel
       Left = 14
@@ -1610,21 +1610,21 @@ object Form7: TForm7
     Top = 121
     Width = 197
     Height = 23
-    TabOrder = 1
+    TabOrder = 0
   end
   object edtTelefonePaciente: TEdit
     Left = 412
     Top = 171
     Width = 197
     Height = 23
-    TabOrder = 2
+    TabOrder = 1
   end
   object edtEmailPaciente: TEdit
     Left = 412
     Top = 229
     Width = 197
     Height = 23
-    TabOrder = 3
+    TabOrder = 2
   end
   object edtCpfPaciente: TEdit
     Left = 412
@@ -1645,7 +1645,7 @@ object Form7: TForm7
     Top = 284
     Width = 197
     Height = 23
-    TabOrder = 6
+    TabOrder = 3
   end
   object btnSalvar: TBitBtn
     Left = 517
@@ -1653,9 +1653,10 @@ object Form7: TForm7
     Width = 75
     Height = 25
     Caption = 'Salvar'
-    TabOrder = 7
+    TabOrder = 6
+    OnClick = btnSalvarClick
   end
-  object conConCadPaci: TFDConnection
+  object conConCadMed: TFDConnection
     Params.Strings = (
       'User_Name=root'
       'Database=healthfamilycenter'
@@ -1666,13 +1667,17 @@ object Form7: TForm7
   end
   object fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
-      'ibmySQL.dll'
-    Left = 16
-    Top = 160
+      'C:\Users\steve\Documents\GitHub\Health-Family-Center\libmySQL.dl' +
+      'l'
+    Left = 48
+    Top = 168
+  end
+  object MedQuery: TFDQuery
+    Connection = conConCadMed
+    Left = 40
+    Top = 248
   end
   object fdqryQueryPaci: TFDQuery
-    Connection = conConCadPaci
     Left = 40
     Top = 240
   end

@@ -98,42 +98,42 @@ object Form5: TForm5
     HeaderInfo.Font.Name = 'Segoe UI'
     HeaderInfo.Font.Style = []
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 6
   end
   object nomPaci: TEdit
     Left = 15
     Top = 133
     Width = 242
     Height = 23
-    TabOrder = 2
+    TabOrder = 1
   end
   object edtData: TEdit
     Left = 15
     Top = 197
     Width = 114
     Height = 23
-    TabOrder = 3
+    TabOrder = 2
   end
   object edtHora: TEdit
     Left = 144
     Top = 197
     Width = 113
     Height = 23
-    TabOrder = 4
+    TabOrder = 3
   end
   object edtMedic: TEdit
     Left = 15
     Top = 256
     Width = 242
     Height = 23
-    TabOrder = 5
+    TabOrder = 4
   end
   object edtAssunto2: TEdit
     Left = 15
     Top = 317
     Width = 242
-    Height = 88
-    TabOrder = 6
+    Height = 23
+    TabOrder = 5
   end
   object FDConnection4: TFDConnection
     Params.Strings = (

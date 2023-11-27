@@ -19,7 +19,7 @@ type
     lbl2: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
-    lbl5: TLabel;
+    edtCRM: TLabel;
     lblEndereco: TLabel;
     pnl1: TPanel;
     lbl7: TLabel;
@@ -30,9 +30,11 @@ type
     edtIdadePaciente: TEdit;
     edtEnderecoPaciente: TEdit;
     btnSalvar: TBitBtn;
-    conConCadPaci: TFDConnection;
+    conConCadMed: TFDConnection;
     fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink;
+    MedQuery: TFDQuery;
     fdqryQueryPaci: TFDQuery;
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,5 +47,44 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm7.btnSalvarClick(Sender: TObject);
+
+begin
+  // Verificar se os campos obrigatórios estão preenchidos antes de inserir
+  if (edtNomePaciente.Text <> '') and (edtTelefonePaciente.Text <> '') and
+     (edtEmailPaciente.Text <> '') and (edtCpfPaciente.Text <> '') and
+     (edtIdadePaciente.Text <> '') and (edtEnderecoPaciente.Text <> '') then
+  begin
+    // Inserir dados no banco de dados usando um componente de query, como TFDQuery
+    MedQuery.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
+      'VALUES (:NomeUsuario, :Idade, :CPF, :endereco, :email, :telefone)';
+    MedQuery.Params.ParamByName('NomeUsuario').Value := edtNomePaciente.Text;
+    MedQuery.Params.ParamByName('Idade').Value := StrToIntDef(edtIdadePaciente.Text, 0);
+    MedQuery.Params.ParamByName('CPF').Value := edtCpfPaciente.Text;
+    MedQuery.Params.ParamByName('endereco').Value := edtEnderecoPaciente.Text;
+    MedQuery.Params.ParamByName('email').Value := edtEmailPaciente.Text;
+    MedQuery.Params.ParamByName('telefone').Value := edtTelefonePaciente.Text;
+    try
+      MedQuery.ExecSQL; // Executa a inserção no banco de dados
+      ShowMessage('Dados inseridos com sucesso!');
+      // Limpar os campos após a inserção, se necessário
+      edtNomePaciente.Clear;
+      edtTelefonePaciente.Clear;
+      edtEmailPaciente.Clear;
+      edtCpfPaciente.Clear;
+      edtIdadePaciente.Clear;
+      edtEnderecoPaciente.Clear;
+      // Atualizar o DBGrid com os dados inseridos, se necessário
+      // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
+    except
+      on E: Exception do
+        ShowMessage('Erro ao inserir dados: ' + E.Message);
+    end;
+    MedQuery.Close;
+  end
+  else
+    ShowMessage('Preencha todos os campos obrigatórios!');
+end;
 
 end.

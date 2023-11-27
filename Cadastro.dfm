@@ -231,7 +231,7 @@ object Form3: TForm3
       Width = 117
       Height = 25
       Caption = 'Confirmar'
-      TabOrder = 2
+      TabOrder = 3
       OnClick = btn2Click
     end
     object edtPassAgain: TEdit
@@ -240,16 +240,17 @@ object Form3: TForm3
       Width = 234
       Height = 23
       PasswordChar = #6
-      TabOrder = 3
+      TabOrder = 2
     end
-    object Edit1: TEdit
-      Left = 47
-      Top = 224
-      Width = 234
-      Height = 23
-      PasswordChar = #6
-      TabOrder = 4
-    end
+  end
+  object editCPF: TEdit
+    Left = 39
+    Top = 174
+    Width = 234
+    Height = 23
+    ImeName = 'editCPF'
+    CanUndoSelText = True
+    TabOrder = 1
   end
   object UsuarioTable: TFDQuery
     Connection = FDConnection1

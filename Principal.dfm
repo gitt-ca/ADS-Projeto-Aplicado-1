@@ -1780,8 +1780,9 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
-      TabOrder = 0
+      TabOrder = 2
       OnClick = btn1Click
+      ExplicitLeft = 215
     end
     object btn2: TBitBtn
       Left = 105
@@ -2240,9 +2241,8 @@ object Form4: TForm4
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
-      TabOrder = 2
+      TabOrder = 0
       OnClick = btn3Click
-      ExplicitLeft = -5
     end
   end
 end

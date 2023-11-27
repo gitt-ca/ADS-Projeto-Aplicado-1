@@ -1631,21 +1631,21 @@ object Form6: TForm6
     Top = 334
     Width = 197
     Height = 23
-    TabOrder = 4
+    TabOrder = 5
   end
   object edtIdadePaciente: TEdit
     Left = 412
     Top = 399
     Width = 197
     Height = 23
-    TabOrder = 5
+    TabOrder = 6
   end
   object edtEnderecoPaciente: TEdit
     Left = 412
     Top = 284
     Width = 197
     Height = 23
-    TabOrder = 6
+    TabOrder = 4
   end
   object btnSalvar: TBitBtn
     Left = 517
