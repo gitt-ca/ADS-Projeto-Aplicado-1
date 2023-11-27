@@ -2258,10 +2258,6 @@ object Form4: TForm4
     TitleFont.Style = []
   end
   object conGridPrincipal: TFDConnection
-    Params.Strings = (
-      'User_Name=root'
-      'Database=healthfamilycenter'
-      'DriverID=MySQL')
     Left = 552
     Top = 384
   end
@@ -2271,9 +2267,6 @@ object Form4: TForm4
     Top = 384
   end
   object fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink
-    VendorLib = 
-      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
-      'SQL.dll'
     Left = 664
     Top = 384
   end

@@ -2271,9 +2271,7 @@ object Form4: TForm4
     Top = 384
   end
   object fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink
-    VendorLib = 
-      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
-      'SQL.dll'
+    VendorLib = 'C:\Users\vitor\OneDrive\Documentos\libmySQL.dll'
     Left = 664
     Top = 384
   end
