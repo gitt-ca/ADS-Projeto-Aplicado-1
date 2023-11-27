@@ -15,6 +15,8 @@ type
     btn3: TBitBtn;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
+    procedure btnHistoricoClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -30,7 +32,7 @@ implementation
 {$R *.dfm}
 
 uses
-   TelaAgendamento, TelaCadPaciente;
+   TelaAgendamento, TelaCadPaciente, TelaCadMedic;
 
 procedure TForm4.btn1Click(Sender: TObject);
 begin
@@ -52,7 +54,7 @@ begin
  end;
 end;
 
-procedure TForm4.btn2Click(Sender: TObject);
+procedure TForm4.btn3Click(Sender: TObject);
 begin
  Form7:= TForm7.Create(nil);
  try
@@ -62,5 +64,9 @@ begin
  end;
 end;
 
-end.
+procedure TForm4.btnHistoricoClick(Sender: TObject);
+begin
+//ajustar
+end;
 
+end.

@@ -60,6 +60,7 @@ object Form6: TForm6
     Height = 73
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 624
     object lbl7: TLabel
       Left = 14
       Top = 22

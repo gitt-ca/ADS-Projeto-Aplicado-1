@@ -11,6 +11,7 @@ object Form6: TForm6
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
+<<<<<<< Updated upstream
   object imgLogoPrincipal: TImage
     Left = -202
     Top = 79
@@ -1544,41 +1545,71 @@ object Form6: TForm6
   object lbl1: TLabel
     Left = 412
     Top = 374
+=======
+  object lbl1: TLabel
+    Left = 269
+    Top = 350
+>>>>>>> Stashed changes
     Width = 29
     Height = 15
     Caption = 'Idade'
   end
   object lbl2: TLabel
+<<<<<<< Updated upstream
     Left = 412
     Top = 92
+=======
+    Left = 269
+    Top = 84
+>>>>>>> Stashed changes
     Width = 89
     Height = 15
     Caption = 'Nome Completo'
   end
   object lbl3: TLabel
+<<<<<<< Updated upstream
     Left = 412
     Top = 150
+=======
+    Left = 269
+    Top = 140
+>>>>>>> Stashed changes
     Width = 44
     Height = 15
     Caption = 'Telefone'
   end
   object lbl4: TLabel
+<<<<<<< Updated upstream
     Left = 412
     Top = 313
+=======
+    Left = 269
+    Top = 297
+>>>>>>> Stashed changes
     Width = 21
     Height = 15
     Caption = 'CPF'
   end
   object lbl5: TLabel
+<<<<<<< Updated upstream
     Left = 412
     Top = 208
+=======
+    Left = 269
+    Top = 192
+>>>>>>> Stashed changes
     Width = 29
     Height = 15
     Caption = 'Email'
   end
   object lblEndereco: TLabel
+<<<<<<< Updated upstream
     Left = 412
     Top = 263
+=======
+    Left = 269
+    Top = 241
+>>>>>>> Stashed changes
     Width = 49
     Height = 15
     Caption = 'Endereco'
@@ -1590,7 +1621,10 @@ object Form6: TForm6
     Height = 73
     Align = alTop
     TabOrder = 0
+<<<<<<< Updated upstream
     ExplicitWidth = 624
+=======
+>>>>>>> Stashed changes
     object lbl7: TLabel
       Left = 14
       Top = 22
@@ -1606,27 +1640,46 @@ object Form6: TForm6
     end
   end
   object edtNomePaciente: TEdit
+<<<<<<< Updated upstream
     Left = 412
     Top = 121
     Width = 197
+=======
+    Left = 269
+    Top = 101
+    Width = 121
+>>>>>>> Stashed changes
     Height = 23
     TabOrder = 1
   end
   object edtTelefonePaciente: TEdit
+<<<<<<< Updated upstream
     Left = 412
     Top = 171
     Width = 197
+=======
+    Left = 269
+    Top = 153
+    Width = 121
+>>>>>>> Stashed changes
     Height = 23
     TabOrder = 2
   end
   object edtEmailPaciente: TEdit
+<<<<<<< Updated upstream
     Left = 412
     Top = 229
     Width = 197
+=======
+    Left = 269
+    Top = 205
+    Width = 121
+>>>>>>> Stashed changes
     Height = 23
     TabOrder = 3
   end
   object edtCpfPaciente: TEdit
+<<<<<<< Updated upstream
     Left = 412
     Top = 334
     Width = 197
@@ -1650,6 +1703,31 @@ object Form6: TForm6
   object btnSalvar: TBitBtn
     Left = 517
     Top = 25
+=======
+    Left = 269
+    Top = 310
+    Width = 121
+    Height = 23
+    TabOrder = 4
+  end
+  object edtIdadePaciente: TEdit
+    Left = 269
+    Top = 363
+    Width = 121
+    Height = 23
+    TabOrder = 5
+  end
+  object edtEnderecoPaciente: TEdit
+    Left = 269
+    Top = 262
+    Width = 121
+    Height = 23
+    TabOrder = 6
+  end
+  object btnSalvar: TBitBtn
+    Left = 285
+    Top = 408
+>>>>>>> Stashed changes
     Width = 75
     Height = 25
     Caption = 'Salvar'
@@ -1661,20 +1739,33 @@ object Form6: TForm6
       'User_Name=root'
       'Database=healthfamilycenter'
       'DriverID=MySQL')
+<<<<<<< Updated upstream
     Connected = True
     Left = 40
     Top = 96
+=======
+    Left = 56
+    Top = 104
+>>>>>>> Stashed changes
   end
   object fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink
     VendorLib = 
       'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
       'ibmySQL.dll'
+<<<<<<< Updated upstream
     Left = 16
+=======
+    Left = 56
+>>>>>>> Stashed changes
     Top = 160
   end
   object fdqryQueryPaci: TFDQuery
     Connection = conConCadPaci
+<<<<<<< Updated upstream
     Left = 40
+=======
+    Left = 56
+>>>>>>> Stashed changes
     Top = 240
   end
 end

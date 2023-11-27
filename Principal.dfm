@@ -14,10 +14,11 @@ object Form4: TForm4
   Position = poScreenCenter
   TextHeight = 15
   object imgLogoPrincipal: TImage
-    Left = 0
+    Left = -16
     Top = 89
-    Width = 775
-    Height = 360
+    Width = 401
+    Height = 373
+    Align = alCustom
     Center = True
     ParentShowHint = False
     Picture.Data = {
@@ -1552,7 +1553,7 @@ object Form4: TForm4
     BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -3
+    ExplicitWidth = 771
     object btn1: TBitBtn
       Left = 209
       Top = 1
@@ -1782,7 +1783,6 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 2
       OnClick = btn1Click
-      ExplicitLeft = 215
     end
     object btn2: TBitBtn
       Left = 105
@@ -2244,5 +2244,30 @@ object Form4: TForm4
       TabOrder = 0
       OnClick = btn3Click
     end
+  end
+  object dbgrdInfouser: TDBGrid
+    Left = 432
+    Top = 115
+    Width = 320
+    Height = 257
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  object conGridPrincipal: TFDConnection
+    Left = 552
+    Top = 384
+  end
+  object fdqryQueryGridPrincipal: TFDQuery
+    Connection = conGridPrincipal
+    Left = 432
+    Top = 384
+  end
+  object fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink
+    Left = 664
+    Top = 384
   end
 end

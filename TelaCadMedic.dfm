@@ -1662,7 +1662,6 @@ object Form7: TForm7
       'User_Name=root'
       'Database=healthfamilycenter'
       'DriverID=MySQL')
-    Connected = True
     Left = 40
     Top = 96
   end
@@ -1679,7 +1678,12 @@ object Form7: TForm7
     Top = 248
   end
   object fdqryQueryPaci: TFDQuery
+<<<<<<< Updated upstream
     Left = 120
     Top = 248
+=======
+    Left = 40
+    Top = 224
+>>>>>>> Stashed changes
   end
 end
