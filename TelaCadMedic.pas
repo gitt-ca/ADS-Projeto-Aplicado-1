@@ -23,17 +23,17 @@ type
     lblEndereco: TLabel;
     pnl1: TPanel;
     lbl7: TLabel;
-    edtNomePaciente: TEdit;
-    edtTelefonePaciente: TEdit;
-    edtEmailPaciente: TEdit;
-    edtCpfPaciente: TEdit;
-    edtIdadePaciente: TEdit;
-    edtEnderecoPaciente: TEdit;
+    edtNomeMed: TEdit;
     btnSalvar: TBitBtn;
     conConCadMed: TFDConnection;
     fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink;
     MedQuery: TFDQuery;
     fdqryQueryPaci: TFDQuery;
+    edtCPF: TEdit;
+    editiCRM: TEdit;
+    edtEspeci: TEdit;
+    edtFuncao: TEdit;
+    edtEmail: TEdit;
     procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
@@ -52,29 +52,29 @@ procedure TForm7.btnSalvarClick(Sender: TObject);
 
 begin
   // Verificar se os campos obrigatórios estão preenchidos antes de inserir
-  if (edtNomePaciente.Text <> '') and (edtTelefonePaciente.Text <> '') and
-     (edtEmailPaciente.Text <> '') and (edtCpfPaciente.Text <> '') and
-     (edtIdadePaciente.Text <> '') and (edtEnderecoPaciente.Text <> '') then
+  if (edtNomeMed.Text <> '') and (edtCPF.Text <> '') and
+     (editiCRM.Text <> '') and (edtEspeci.Text <> '') and
+     (edtFuncao.Text <> '') and (edtEmail.Text <> '') then
   begin
     // Inserir dados no banco de dados usando um componente de query, como TFDQuery
-    MedQuery.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
-      'VALUES (:NomeUsuario, :Idade, :CPF, :endereco, :email, :telefone)';
-    MedQuery.Params.ParamByName('NomeUsuario').Value := edtNomePaciente.Text;
-    MedQuery.Params.ParamByName('Idade').Value := StrToIntDef(edtIdadePaciente.Text, 0);
-    MedQuery.Params.ParamByName('CPF').Value := edtCpfPaciente.Text;
-    MedQuery.Params.ParamByName('endereco').Value := edtEnderecoPaciente.Text;
-    MedQuery.Params.ParamByName('email').Value := edtEmailPaciente.Text;
-    MedQuery.Params.ParamByName('telefone').Value := edtTelefonePaciente.Text;
+    MedQuery.SQL.Text := 'INSERT INTO Funcionario (NomeFuncionario, CPF, CRM, Especialidade, Funcao, email, ativo)' +
+      'VALUES (:NomeFunc, :CPF, :CRM,:Especialidade, :Funcao, :email, 1)';
+    MedQuery.Params.ParamByName('NomeFunc').Value := edtNomeMed.Text;
+    MedQuery.Params.ParamByName('CPF').Value := edtCPF.text;
+    MedQuery.Params.ParamByName('CRM').Value := editiCRM.Text;
+    MedQuery.Params.ParamByName('Especialidade').Value := edtEspeci.Text;
+    MedQuery.Params.ParamByName('Funcao').Value := edtFuncao.Text;
+    MedQuery.Params.ParamByName('email').Value := edtEmail.Text;
     try
       MedQuery.ExecSQL; // Executa a inserção no banco de dados
       ShowMessage('Dados inseridos com sucesso!');
       // Limpar os campos após a inserção, se necessário
-      edtNomePaciente.Clear;
-      edtTelefonePaciente.Clear;
-      edtEmailPaciente.Clear;
-      edtCpfPaciente.Clear;
-      edtIdadePaciente.Clear;
-      edtEnderecoPaciente.Clear;
+      edtNomeMed.Clear;
+      edtCPF.Clear;
+      editiCRM.Clear;
+      edtEspeci.Clear;
+      edtFuncao.Clear;
+      edtEmail.Clear;
       // Atualizar o DBGrid com os dados inseridos, se necessário
       // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
     except
