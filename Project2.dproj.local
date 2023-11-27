@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023/10/14 13:46:36.457,=C:\Users\vitor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/10/14 14:01:51.525,C:\Users\vitor\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\vitor\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+	<Transactions>
+    <Transaction>2023/10/14 13:46:36.000.457,=C:\Users\vitor\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/10/14 14:01:51.000.525,C:\Users\vitor\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\vitor\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
   </Transactions>
 </BorlandProject>
