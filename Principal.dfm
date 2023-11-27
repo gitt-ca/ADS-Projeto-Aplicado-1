@@ -14,7 +14,7 @@ object Form4: TForm4
   Position = poScreenCenter
   TextHeight = 15
   object imgLogoPrincipal: TImage
-    Left = -16
+    Left = 8
     Top = 89
     Width = 401
     Height = 373
