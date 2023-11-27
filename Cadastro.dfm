@@ -273,4 +273,9 @@ object Form3: TForm3
     Left = 528
     Top = 104
   end
+  object QueryIdPaciente: TSQLQuery
+    Params = <>
+    Left = 376
+    Top = 368
+  end
 end

@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
   FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI;
+  FireDAC.Comp.UI, Data.FMTBcd, Data.SqlExpr;
 type
   TForm3 = class(TForm)
     lbl1: TLabel;
@@ -34,6 +34,7 @@ type
     edtPassAgain: TEdit;
     Label1: TLabel;
     editCPF: TEdit;
+    QueryIdPaciente: TSQLQuery;
     procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
@@ -77,12 +78,10 @@ begin
 
     // Insere novo usuário
     UsuarioTable.Close; // Fecha a consulta anterior
-    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha) VALUES (:valor1, :valor2, :valor3)';
     UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
     UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
     UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
-    UsuarioTable.Params.ParamByName('valor4').Value := NULL; // Substitua 'temp1' pelo valor desejado
-    UsuarioTable.Params.ParamByName('valor5').Value := NULL; // Substitua 'temp2' pelo valor desejado
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
 
@@ -90,22 +89,26 @@ begin
   finally
     UsuarioTable.Close; // Garante que a tabela seja sempre fechada
 
-    UsuarioTable.SQL.Text := 'SELECT id,NomeUsuario FROM Paciente WHERE cpf = :valor6';
-    UsuarioTable.Params.ParamByName('valor6').Value := editCPF.Text;
-    UsuarioTable.Open;
+    QueryIdPaciente.SQL.Text := 'SELECT id FROM Paciente WHERE cpf = :valor6';
+    QueryIdPaciente.Params.ParamByName('valor6').Value := editCPF.Text;
+    QueryIdPaciente.Open;
 
     try
-      if not UsuarioTable.IsEmpty then
+      if not QueryIdPaciente.IsEmpty then
       begin
-        strSQLResult := UsuarioTable.FieldByName('id').AsString;
-        UsuarioTable.SQL.Text := 'update usuario set id_paciente = :valor7';
+        strSQLResult := QueryIdPaciente.FieldByName('id').AsString;
+
+        // Corrija a SQL e os parâmetros nesta parte do código
+        UsuarioTable.SQL.Text := 'UPDATE usuario SET id_paciente = :valor7 WHERE cpf = :valor8';
         UsuarioTable.Params.ParamByName('valor7').Value := strSQLResult;
+        UsuarioTable.Params.ParamByName('valor8').Value := editCPF.Text;
+
+        UsuarioTable.ExecSQL;
       end;
     finally
-      UsuarioTable.Close;
+      QueryIdPaciente.Close;
 
     end;
-        Exit;
       end;
 
 end;

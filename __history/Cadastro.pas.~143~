@@ -77,12 +77,10 @@ begin
 
     // Insere novo usuário
     UsuarioTable.Close; // Fecha a consulta anterior
-    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha) VALUES (:valor1, :valor2, :valor3)';
     UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
     UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
     UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
-    UsuarioTable.Params.ParamByName('valor4').Value := NULL;
-    UsuarioTable.Params.ParamByName('valor5').Value := NULL;
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
 
@@ -98,7 +96,7 @@ begin
       if not UsuarioTable.IsEmpty then
       begin
         strSQLResult := UsuarioTable.FieldByName('id').AsString;
-        UsuarioTable.SQL.Text := 'update usuario set id_paciente = :valor7 where = := valor8';
+        UsuarioTable.SQL.Text := 'update usuario set id_paciente = :valor7 where = :valor8';
         UsuarioTable.Params.ParamByName('valor7').Value := strSQLResult;
         UsuarioTable.Params.ParamByName('valor8').Value := editCPF.Text;
       end;

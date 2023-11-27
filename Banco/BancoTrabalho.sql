@@ -189,8 +189,14 @@ drop table funcionario;
 
 select * from paciente;
 select * from funcionario;
+
+
 select * from usuario;
 delete from usuario;
+
+
+
+
 
 SET FOREIGN_KEY_CHECKS=0; -- to disable them
 

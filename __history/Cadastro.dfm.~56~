@@ -215,7 +215,7 @@ object Form3: TForm3
       Top = 176
       Width = 234
       Height = 23
-      TabOrder = 1
+      TabOrder = 0
     end
     object edtPass: TEdit
       Left = 47
@@ -223,7 +223,7 @@ object Form3: TForm3
       Width = 234
       Height = 23
       PasswordChar = #6
-      TabOrder = 0
+      TabOrder = 2
     end
     object btn2: TButton
       Left = 106
@@ -240,7 +240,7 @@ object Form3: TForm3
       Width = 234
       Height = 23
       PasswordChar = #6
-      TabOrder = 2
+      TabOrder = 1
     end
   end
   object editCPF: TEdit
