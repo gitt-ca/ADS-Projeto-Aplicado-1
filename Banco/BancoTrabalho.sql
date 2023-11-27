@@ -194,6 +194,7 @@ select * from funcionario;
 select * from usuario;
 delete from usuario;
 
+select * from agendamento;
 
 
 

@@ -58,7 +58,7 @@ begin
   begin
     // Inserir dados no banco de dados usando um componente de query, como TFDQuery
     MedQuery.SQL.Text := 'INSERT INTO Funcionario (NomeFuncionario, CPF, CRM, Especialidade, Funcao, email, ativo)' +
-      'VALUES (:NomeFunc, :CPF, :CRM, :Especialidade, :email, 1)';
+      'VALUES (:NomeFunc, :CPF, :CRM, :Especialidade, :Funcao, :email, 1)';
     MedQuery.Params.ParamByName('NomeFunc').Value := edtNomeMed.Text;
     MedQuery.Params.ParamByName('CPF').Value := edtCPF.text;
     MedQuery.Params.ParamByName('CRM').Value := editiCRM.Text;
