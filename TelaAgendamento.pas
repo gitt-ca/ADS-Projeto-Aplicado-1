@@ -23,15 +23,19 @@ type
     lbl7: TLabel;
     FDConnection4: TFDConnection;
     FDPhysMySQLDriverLink4: TFDPhysMySQLDriverLink;
-    FDQuery4: TFDQuery;
+    QueryAgenda: TFDQuery;
     BitBtnSalvar: TBitBtn;
-    CalendarView: TCalendarView;
     edtNomePaciente: TEdit;
     edtHora: TEdit;
     edtTitulo: TEdit;
     lblAssunto: TLabel;
     edtAssunto: TEdit;
-    edtDate: TEdit;
+    edtDate: TLabel;
+    CalendarView1: TCalendarView;
+    procedure FormCreate(Sender: TObject);
+    procedure CalendarView1Change(Sender: TObject);
+    procedure BitBtnSalvarClick(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -40,9 +44,67 @@ type
 
 var
   Form5: TForm5;
+  tmp1: String;
 
 implementation
 
 {$R *.dfm}
+
+
+procedure TForm5.BitBtnSalvarClick(Sender: TObject);
+begin
+
+begin
+  // Verificar se os campos obrigatórios estão preenchidos antes de inserir
+  if (edtNomePaciente.Text <> '') and (edtDate.Caption <> '') and
+     (edtHora.Text <> '') and (edtTitulo.Text <> '') and
+     (edtAssunto.Text <> '') then
+  begin
+
+
+    // Inserir dados no banco de dados usando um componente de query, como TFDQuery
+    QueryAgenda.SQL.Text := 'INSERT INTO Agendamento (datahora, titulo, texto) ' +
+      'VALUES (:valor0 :valor1, :valor2, :valor3)';
+    QueryAgenda.Params.ParamByName('valor0').Value := edtDate.Caption;
+    QueryAgenda.Params.ParamByName('valor1').Value := edtHora.Text;
+    QueryAgenda.Params.ParamByName('valor2').Value := edtTitulo.Text;
+    QueryAgenda.Params.ParamByName('valor3').Value := edtAssunto.Text;
+
+    try
+      QueryAgenda.ExecSQL; // Executa a inserção no banco de dados
+      ShowMessage('Dados inseridos com sucesso!');
+      // Limpar os campos após a inserção, se necessário
+      edtNomePaciente.Clear;
+      edtTitulo.Clear;
+      edtAssunto.Clear;
+
+      // Atualizar o DBGrid com os dados inseridos, se necessário
+      // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
+    except
+      on E: Exception do
+        ShowMessage('Erro ao inserir dados: ' + E.Message);
+    end;
+    QueryAgenda.Close;
+  end
+  else
+    ShowMessage('Preencha todos os campos obrigatórios!');
+end;
+
+
+end;
+
+procedure TForm5.CalendarView1Change(Sender: TObject);
+begin
+  // Este evento é acionado quando o usuário seleciona uma data no CalendarView
+  // Atualize o TLabel com a data selecionada
+
+  edtDate.Caption := FormatDateTime('yyyy-mm-dd',CalendarView1.Date);
+end;
+
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  edtDate.Caption := FormatDateTime('yyyy-mm-dd',CalendarView1.Date);
+end;
+
 
 end.

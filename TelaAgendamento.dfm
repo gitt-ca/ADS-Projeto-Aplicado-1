@@ -10,6 +10,7 @@ object Form5: TForm5
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   TextHeight = 15
   object lbl2: TLabel
     Left = 18
@@ -19,7 +20,7 @@ object Form5: TForm5
     Caption = 'Nome Paciente'
   end
   object lbl4: TLabel
-    Left = 15
+    Left = 18
     Top = 176
     Width = 27
     Height = 15
@@ -45,6 +46,12 @@ object Form5: TForm5
     Width = 43
     Height = 15
     Caption = 'Assunto'
+  end
+  object edtDate: TLabel
+    Left = 18
+    Top = 197
+    Width = 111
+    Height = 15
   end
   object pnl1: TPanel
     Left = 0
@@ -74,31 +81,8 @@ object Form5: TForm5
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
+      OnClick = BitBtnSalvarClick
     end
-  end
-  object CalendarView: TCalendarView
-    Left = 288
-    Top = 112
-    Width = 326
-    Height = 293
-    Date = 45253.000000000000000000
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    HeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
-    HeaderInfo.DaysOfWeekFont.Color = clWindowText
-    HeaderInfo.DaysOfWeekFont.Height = -13
-    HeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
-    HeaderInfo.DaysOfWeekFont.Style = []
-    HeaderInfo.Font.Charset = DEFAULT_CHARSET
-    HeaderInfo.Font.Color = clWindowText
-    HeaderInfo.Font.Height = -20
-    HeaderInfo.Font.Name = 'Segoe UI'
-    HeaderInfo.Font.Style = []
-    ParentFont = False
-    TabOrder = 5
   end
   object edtNomePaciente: TEdit
     Left = 18
@@ -128,12 +112,28 @@ object Form5: TForm5
     Height = 23
     TabOrder = 4
   end
-  object edtDate: TEdit
-    Left = 18
-    Top = 197
-    Width = 111
-    Height = 23
-    TabOrder = 6
+  object CalendarView1: TCalendarView
+    Left = 312
+    Top = 97
+    Date = 45256.000000000000000000
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    HeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+    HeaderInfo.DaysOfWeekFont.Color = clWindowText
+    HeaderInfo.DaysOfWeekFont.Height = -13
+    HeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+    HeaderInfo.DaysOfWeekFont.Style = []
+    HeaderInfo.Font.Charset = DEFAULT_CHARSET
+    HeaderInfo.Font.Color = clWindowText
+    HeaderInfo.Font.Height = -20
+    HeaderInfo.Font.Name = 'Segoe UI'
+    HeaderInfo.Font.Style = []
+    OnChange = CalendarView1Change
+    ParentFont = False
+    TabOrder = 5
   end
   object FDConnection4: TFDConnection
     Params.Strings = (
@@ -150,7 +150,7 @@ object Form5: TForm5
     Left = 192
     Top = 392
   end
-  object FDQuery4: TFDQuery
+  object QueryAgenda: TFDQuery
     CachedUpdates = True
     Connection = FDConnection4
     Left = 24

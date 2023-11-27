@@ -9,8 +9,8 @@ id int auto_increment not null,
 datahora datetime,
 titulo varchar(45),
 texto varchar(45),
-id_funcionario int not null,
-id_paciente int not null,
+id_funcionario int,
+id_paciente int,
 
 primary key(id),
 FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id),
@@ -18,6 +18,9 @@ FOREIGN KEY (id_paciente) REFERENCES Paciente(id)
 );
 
 select * from Agendamento;
+
+INSERT INTO Agendamento (datahora, titulo, texto, id_funcionario, id_paciente)
+VALUES('2023-7-14 14:23:00', "Consulta", "Rotina", 1, 1);
 
 
 CREATE TABLE Funcionario(
@@ -175,7 +178,7 @@ delete from usuario;
 
 desc funcionario;
 
-drop table usuario;
+drop table Agendamento;
 
 drop table funcionario;
 
