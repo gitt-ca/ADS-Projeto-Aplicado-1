@@ -64,11 +64,20 @@ begin
 
     // Inserir dados no banco de dados usando um componente de query, como TFDQuery
     QueryAgenda.SQL.Text := 'INSERT INTO Agendamento (datahora, titulo, texto) ' +
-      'VALUES (:valor0 :valor1, :valor2, :valor3)';
-    QueryAgenda.Params.ParamByName('valor0').Value := edtDate.Caption;
-    QueryAgenda.Params.ParamByName('valor1').Value := edtHora.Text;
-    QueryAgenda.Params.ParamByName('valor2').Value := edtTitulo.Text;
-    QueryAgenda.Params.ParamByName('valor3').Value := edtAssunto.Text;
+      'VALUES (:valor0, :valor1, :valor2)';
+
+    // Concatenando a data e hora e convertendo para TDateTime
+    var
+      datahora: String;
+    begin
+      datahora := edtDate.Caption + ' ' + edtHora.Text;
+
+      // Atribuindo ao parâmetro
+      QueryAgenda.Params.ParamByName('valor0').Value := datahora;
+    end;
+
+    QueryAgenda.Params.ParamByName('valor1').Value := edtTitulo.Text;
+    QueryAgenda.Params.ParamByName('valor2').Value := edtAssunto.Text;
 
     try
       QueryAgenda.ExecSQL; // Executa a inserção no banco de dados
