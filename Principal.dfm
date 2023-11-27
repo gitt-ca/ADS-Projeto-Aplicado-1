@@ -15,9 +15,9 @@ object Form4: TForm4
   TextHeight = 15
   object imgLogoPrincipal: TImage
     Left = -16
-    Top = 89
+    Top = 72
     Width = 401
-    Height = 373
+    Height = 390
     Align = alCustom
     Center = True
     ParentShowHint = False
@@ -1544,21 +1544,34 @@ object Form4: TForm4
       ECEF0000000049454E44AE426082}
     ShowHint = False
   end
+  object lblGridPrincpal: TLabel
+    Left = 512
+    Top = 84
+    Width = 178
+    Height = 25
+    Align = alCustom
+    Caption = 'Meus Agendamentos'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+  end
   object pnl1: TPanel
     Left = 0
     Top = 0
     Width = 775
-    Height = 86
+    Height = 83
     Align = alTop
     BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 771
     object btn1: TBitBtn
       Left = 209
       Top = 1
       Width = 104
-      Height = 80
+      Height = 77
       Align = alLeft
       Caption = 'Agendamentos'
       Glyph.Data = {
@@ -1783,12 +1796,13 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 2
       OnClick = btn1Click
+      ExplicitHeight = 80
     end
     object btn2: TBitBtn
       Left = 105
       Top = 1
       Width = 104
-      Height = 80
+      Height = 77
       Align = alLeft
       Caption = 'Pacientes'
       Glyph.Data = {
@@ -2013,12 +2027,13 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 1
       OnClick = btn2Click
+      ExplicitHeight = 80
     end
     object btn3: TBitBtn
       Left = 1
       Top = 1
       Width = 104
-      Height = 80
+      Height = 77
       Align = alLeft
       Caption = 'Medico'
       Glyph.Data = {
@@ -2243,6 +2258,7 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 0
       OnClick = btn3Click
+      ExplicitHeight = 80
     end
   end
   object dbgrdInfouser: TDBGrid
@@ -2257,24 +2273,31 @@ object Form4: TForm4
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
   end
+  object dbnvgrNvigatorGridPrioncipal: TDBNavigator
+    Left = 432
+    Top = 400
+    Width = 320
+    Height = 25
+    TabOrder = 2
+  end
   object conGridPrincipal: TFDConnection
     Params.Strings = (
       'User_Name=root'
       'Database=healthfamilycenter'
       'DriverID=MySQL')
-    Left = 552
-    Top = 384
+    Left = 176
+    Top = 400
   end
   object fdqryQueryGridPrincipal: TFDQuery
     Connection = conGridPrincipal
-    Left = 432
-    Top = 384
+    Left = 40
+    Top = 400
   end
   object fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink
     VendorLib = 
       'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
       'SQL.dll'
-    Left = 664
-    Top = 384
+    Left = 296
+    Top = 400
   end
 end

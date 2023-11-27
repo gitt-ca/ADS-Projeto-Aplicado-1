@@ -23,7 +23,6 @@ type
     conGridPrincipal: TFDConnection;
     fdqryQueryGridPrincipal: TFDQuery;
     fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink;
-    lblGridPrincpal: TLabel;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
@@ -79,6 +78,5 @@ procedure TForm4.btnHistoricoClick(Sender: TObject);
 begin
 //ajustar
 end;
-
 
 end.
