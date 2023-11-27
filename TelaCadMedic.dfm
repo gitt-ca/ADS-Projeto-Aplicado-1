@@ -1679,7 +1679,7 @@ object Form7: TForm7
     Top = 248
   end
   object fdqryQueryPaci: TFDQuery
-    Left = 40
-    Top = 240
+    Left = 120
+    Top = 248
   end
 end

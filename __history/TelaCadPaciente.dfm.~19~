@@ -1669,8 +1669,8 @@ object Form6: TForm6
     VendorLib = 
       'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
       'ibmySQL.dll'
-    Left = 48
-    Top = 168
+    Left = 16
+    Top = 160
   end
   object fdqryQueryPaci: TFDQuery
     Connection = conConCadPaci

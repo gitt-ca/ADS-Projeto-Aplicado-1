@@ -1543,7 +1543,7 @@ object Form7: TForm7
   end
   object lbl1: TLabel
     Left = 412
-    Top = 374
+    Top = 366
     Width = 29
     Height = 15
     Caption = 'Email'
@@ -1564,21 +1564,21 @@ object Form7: TForm7
   end
   object lbl4: TLabel
     Left = 412
-    Top = 313
+    Top = 308
     Width = 39
     Height = 15
     Caption = 'Fun'#231#227'o'
   end
   object edtCRM: TLabel
     Left = 412
-    Top = 208
+    Top = 200
     Width = 26
     Height = 15
     Caption = 'CRM'
   end
   object lblEndereco: TLabel
     Left = 412
-    Top = 263
+    Top = 250
     Width = 71
     Height = 15
     Caption = 'Especialidade'
@@ -1605,50 +1605,12 @@ object Form7: TForm7
       ParentFont = False
     end
   end
-  object edtNomePaciente: TEdit
+  object edtNomeMed: TEdit
     Left = 412
     Top = 121
     Width = 197
     Height = 23
     TabOrder = 0
-  end
-  object edtTelefonePaciente: TEdit
-    Left = 412
-    Top = 171
-    Width = 197
-    Height = 23
-    ImeName = 'edtCPF'
-    TabOrder = 1
-  end
-  object edtEmailPaciente: TEdit
-    Left = 412
-    Top = 229
-    Width = 197
-    Height = 23
-    ImeName = 'edtCRM'
-    TabOrder = 2
-  end
-  object edtFunc: TEdit
-    Left = 412
-    Top = 334
-    Width = 197
-    Height = 23
-    TabOrder = 4
-  end
-  object edtMail: TEdit
-    Left = 412
-    Top = 399
-    Width = 197
-    Height = 23
-    TabOrder = 5
-  end
-  object edtEnderecoPaciente: TEdit
-    Left = 412
-    Top = 284
-    Width = 197
-    Height = 23
-    ImeName = 'edtEspecialidade'
-    TabOrder = 3
   end
   object btnSalvar: TBitBtn
     Left = 517
@@ -1658,6 +1620,42 @@ object Form7: TForm7
     Caption = 'Salvar'
     TabOrder = 6
     OnClick = btnSalvarClick
+  end
+  object edtCPF: TEdit
+    Left = 412
+    Top = 171
+    Width = 197
+    Height = 23
+    ImeName = 'edtCPF'
+    TabOrder = 1
+  end
+  object editiCRM: TEdit
+    Left = 412
+    Top = 221
+    Width = 197
+    Height = 23
+    TabOrder = 2
+  end
+  object edtEspeci: TEdit
+    Left = 412
+    Top = 271
+    Width = 197
+    Height = 23
+    TabOrder = 3
+  end
+  object edtFuncao: TEdit
+    Left = 412
+    Top = 329
+    Width = 197
+    Height = 23
+    TabOrder = 4
+  end
+  object edtEmail: TEdit
+    Left = 412
+    Top = 387
+    Width = 197
+    Height = 23
+    TabOrder = 5
   end
   object conConCadMed: TFDConnection
     Params.Strings = (
