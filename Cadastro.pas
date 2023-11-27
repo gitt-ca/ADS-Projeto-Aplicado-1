@@ -98,7 +98,6 @@ begin
       begin
         strSQLResult := QueryIdPaciente.FieldByName('id').AsString;
 
-        // Corrija a SQL e os parâmetros nesta parte do código
         QueryIdPaciente.SQL.Text := 'UPDATE usuario SET id_paciente = :valor7 WHERE cpf = :valor8';
         QueryIdPaciente.Params.ParamByName('valor7').Value := strSQLResult;
         QueryIdPaciente.Params.ParamByName('valor8').Value := editCPF.Text;

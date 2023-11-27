@@ -89,7 +89,7 @@ begin
   finally
     UsuarioTable.Close; // Garante que a tabela seja sempre fechada
 
-    QueryIdPaciente.SQL.Text := 'SELECT id,NomeUsuario FROM Paciente WHERE cpf = :valor6';
+    QueryIdPaciente.SQL.Text := 'SELECT id FROM Paciente WHERE cpf = :valor6';
     QueryIdPaciente.Params.ParamByName('valor6').Value := editCPF.Text;
     QueryIdPaciente.Open;
 
@@ -97,9 +97,13 @@ begin
       if not QueryIdPaciente.IsEmpty then
       begin
         strSQLResult := QueryIdPaciente.FieldByName('id').AsString;
-        QueryIdPaciente.SQL.Text := 'update usuario set id_paciente = :valor7 where = :valor8';
+
+        // Corrija a SQL e os parâmetros nesta parte do código
+        QueryIdPaciente.SQL.Text := 'UPDATE usuario SET id_paciente = :valor7 WHERE cpf = :valor8';
         QueryIdPaciente.Params.ParamByName('valor7').Value := strSQLResult;
         QueryIdPaciente.Params.ParamByName('valor8').Value := editCPF.Text;
+
+        QueryIdPaciente.ExecSQL;
       end;
     finally
       QueryIdPaciente.Close;
