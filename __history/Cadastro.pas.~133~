@@ -32,8 +32,8 @@ type
     FDConnection1: TFDConnection;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     edtPassAgain: TEdit;
-    editCPF: TEdit;
     Label1: TLabel;
+    editCPF: TEdit;
     procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
@@ -47,7 +47,7 @@ implementation
 procedure TForm3.btn2Click(Sender: TObject);
 var
   strSQLResult: String;
-  temp1, temp2: String;
+  temp1, temp2: Integer;
 begin
   // Verifica se os campos de usuário e senha estão preenchidos
   if (Trim(edtUser.Text) = '') or (Trim(editCPF.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
@@ -76,8 +76,8 @@ begin
       Exit;
     end;
 
-    temp1 := 'NULL';
-    temp2 := "NULL";
+    temp1 := 0;
+    temp2 := 0;
     // Insere novo usuário
     UsuarioTable.Close; // Fecha a consulta anterior
     UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
@@ -85,12 +85,38 @@ begin
     UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
     UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
     UsuarioTable.Params.ParamByName('valor4').Value := temp1; // Substitua 'temp1' pelo valor desejado
-    UsuarioTable.Params.ParamByName('valor4').Value := temp2; // Substitua 'temp2' pelo valor desejado
+    UsuarioTable.Params.ParamByName('valor5').Value := temp2; // Substitua 'temp2' pelo valor desejado
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
+
+    if not UsuarioTable.IsEmpty then
+    begin
+      strSQLResult := UsuarioTable.FieldByName('usuario').AsString;
+      ShowMessage('Usuário já existe no banco!');
+      Exit;
+    end;
+
   finally
     UsuarioTable.Close; // Garante que a tabela seja sempre fechada
-  end;
+
+    UsuarioTable.SQL.Text := 'SELECT id,NomeUsuario FROM Paciente WHERE cpf = :valor6';
+    UsuarioTable.Params.ParamByName('valor6').Value := editCPF.Text;
+    UsuarioTable.Open;
+
+    try
+      if not UsuarioTable.IsEmpty then
+      begin
+        strSQLResult := UsuarioTable.FieldByName('id').AsString;
+        UsuarioTable.SQL.Text := 'update usuario set id_paciente = :valor7';
+        UsuarioTable.Params.ParamByName('valor7').Value := strSQLResult;
+      end;
+    finally
+      UsuarioTable.Close;
+
+    end;
+        Exit;
+      end;
+
 end;
 
 

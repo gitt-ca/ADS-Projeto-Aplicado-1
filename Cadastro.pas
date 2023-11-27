@@ -47,7 +47,6 @@ implementation
 procedure TForm3.btn2Click(Sender: TObject);
 var
   strSQLResult: String;
-  temp1, temp2: Integer;
 begin
   // Verifica se os campos de usuário e senha estão preenchidos
   if (Trim(edtUser.Text) = '') or (Trim(editCPF.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
@@ -76,21 +75,37 @@ begin
       Exit;
     end;
 
-    temp1 := 1;
-    temp2 := 1;
     // Insere novo usuário
     UsuarioTable.Close; // Fecha a consulta anterior
-    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha) VALUES (:valor1, :valor2, :valor3)';
     UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
     UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
     UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
-    UsuarioTable.Params.ParamByName('valor4').Value := temp1; // Substitua 'temp1' pelo valor desejado
-    UsuarioTable.Params.ParamByName('valor5').Value := temp2; // Substitua 'temp2' pelo valor desejado
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
+
+
   finally
     UsuarioTable.Close; // Garante que a tabela seja sempre fechada
-  end;
+
+    UsuarioTable.SQL.Text := 'SELECT id,NomeUsuario FROM Paciente WHERE cpf = :valor6';
+    UsuarioTable.Params.ParamByName('valor6').Value := editCPF.Text;
+    UsuarioTable.Open;
+
+    try
+      if not UsuarioTable.IsEmpty then
+      begin
+        strSQLResult := UsuarioTable.FieldByName('id').AsString;
+        UsuarioTable.SQL.Text := 'update usuario set id_paciente = :valor7 where = :valor8';
+        UsuarioTable.Params.ParamByName('valor7').Value := strSQLResult;
+        UsuarioTable.Params.ParamByName('valor8').Value := editCPF.Text;
+      end;
+    finally
+      UsuarioTable.Close;
+
+    end;
+      end;
+
 end;
 
 

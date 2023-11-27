@@ -176,8 +176,13 @@ select * from paciente;
 
 delete from usuario;
 
-desc funcionario;
+select * from usuario;
 
+INSERT INTO Usuario (Usuario, CPF, Senha)
+VALUES("Vitor","123123","2023");
+
+desc funcionario;
+desc usuario;
 drop table Agendamento;
 
 drop table funcionario;
