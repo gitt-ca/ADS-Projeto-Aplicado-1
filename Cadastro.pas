@@ -55,12 +55,10 @@ begin
     ShowMessage('Por favor, preencha todos os campos.');
     Exit;
   end;
-
   // Verifica se o usuário já existe no banco
   UsuarioTable.SQL.Text := 'SELECT usuario FROM usuario WHERE usuario = :valor1';
   UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
   UsuarioTable.Open;
-
   try
     if not UsuarioTable.IsEmpty then
     begin
@@ -68,14 +66,12 @@ begin
       ShowMessage('Usuário já existe no banco!');
       Exit;
     end;
-
     // Verifica se as senhas digitadas são iguais
     if edtPass.Text <> edtPassAgain.Text then
     begin
       ShowMessage('As senhas não são equivalentes!');
       Exit;
     end;
-
     // Insere novo usuário
     UsuarioTable.Close; // Fecha a consulta anterior
     UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha) VALUES (:valor1, :valor2, :valor3)';
@@ -85,10 +81,8 @@ begin
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
 
-
   finally
     UsuarioTable.Close; // Garante que a tabela seja sempre fechada
-
     QueryIdPaciente.SQL.Text := 'SELECT id FROM Paciente WHERE cpf = :valor6';
     QueryIdPaciente.Params.ParamByName('valor6').Value := editCPF.Text;
     QueryIdPaciente.Open;
@@ -109,7 +103,6 @@ begin
 
     end;
       end;
-
 end;
 
 
