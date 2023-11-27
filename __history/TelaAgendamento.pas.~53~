@@ -24,15 +24,15 @@ type
     FDConnection4: TFDConnection;
     FDPhysMySQLDriverLink4: TFDPhysMySQLDriverLink;
     FDQuery4: TFDQuery;
-    BitBtn4: TBitBtn;
-    CalendarView1: TCalendarView;
-    nomPaci: TEdit;
-    edtData: TEdit;
+    BitBtnSalvar: TBitBtn;
+    CalendarView: TCalendarView;
+    edtNomePaciente: TEdit;
     edtHora: TEdit;
-    edtMedic: TEdit;
+    edtTitulo: TEdit;
     lblAssunto: TLabel;
-    edtAssunto2: TEdit;
-    procedure CalendarView1Change(Sender: TObject);
+    edtAssunto: TEdit;
+    edtDate: TLabel;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,12 +46,9 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm5.CalendarView1Change(Sender: TObject);
-
-  begin
-    // Define o valor do campo para a data clicada
-
-    // Faça qualquer outra coisa que você precisa fazer com o valor
-  end;
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  edtDate.Caption := FormatDateTime('dd/mm/yyyy', CalendarView.Date);
+end;
 
 end.

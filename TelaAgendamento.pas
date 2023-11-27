@@ -24,14 +24,14 @@ type
     FDConnection4: TFDConnection;
     FDPhysMySQLDriverLink4: TFDPhysMySQLDriverLink;
     FDQuery4: TFDQuery;
-    BitBtn4: TBitBtn;
-    CalendarView1: TCalendarView;
-    nomPaci: TEdit;
-    edtData: TEdit;
+    BitBtnSalvar: TBitBtn;
+    CalendarView: TCalendarView;
+    edtNomePaciente: TEdit;
     edtHora: TEdit;
-    edtMedic: TEdit;
+    edtTitulo: TEdit;
     lblAssunto: TLabel;
-    edtAssunto2: TEdit;
+    edtAssunto: TEdit;
+    edtDate: TEdit;
   private
     { Private declarations }
   public

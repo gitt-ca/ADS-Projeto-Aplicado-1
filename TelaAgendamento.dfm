@@ -12,7 +12,7 @@ object Form5: TForm5
   Font.Style = []
   TextHeight = 15
   object lbl2: TLabel
-    Left = 14
+    Left = 18
     Top = 112
     Width = 81
     Height = 15
@@ -67,7 +67,7 @@ object Form5: TForm5
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object BitBtn4: TBitBtn
+    object BitBtnSalvar: TBitBtn
       Left = 504
       Top = 27
       Width = 75
@@ -76,7 +76,7 @@ object Form5: TForm5
       TabOrder = 0
     end
   end
-  object CalendarView1: TCalendarView
+  object CalendarView: TCalendarView
     Left = 288
     Top = 112
     Width = 326
@@ -98,42 +98,42 @@ object Form5: TForm5
     HeaderInfo.Font.Name = 'Segoe UI'
     HeaderInfo.Font.Style = []
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
   end
-  object nomPaci: TEdit
-    Left = 15
+  object edtNomePaciente: TEdit
+    Left = 18
     Top = 133
     Width = 242
     Height = 23
     TabOrder = 1
-  end
-  object edtData: TEdit
-    Left = 15
-    Top = 197
-    Width = 114
-    Height = 23
-    TabOrder = 2
   end
   object edtHora: TEdit
     Left = 144
     Top = 197
     Width = 113
     Height = 23
-    TabOrder = 3
+    TabOrder = 2
   end
-  object edtMedic: TEdit
+  object edtTitulo: TEdit
     Left = 15
     Top = 256
     Width = 242
     Height = 23
-    TabOrder = 4
+    TabOrder = 3
   end
-  object edtAssunto2: TEdit
+  object edtAssunto: TEdit
     Left = 15
     Top = 317
     Width = 242
     Height = 23
-    TabOrder = 5
+    TabOrder = 4
+  end
+  object edtDate: TEdit
+    Left = 18
+    Top = 197
+    Width = 111
+    Height = 23
+    TabOrder = 6
   end
   object FDConnection4: TFDConnection
     Params.Strings = (

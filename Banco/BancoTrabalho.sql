@@ -17,6 +17,8 @@ FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id),
 FOREIGN KEY (id_paciente) REFERENCES Paciente(id)
 );
 
+select * from Agendamento;
+
 
 CREATE TABLE Funcionario(
 id int auto_increment not null,
