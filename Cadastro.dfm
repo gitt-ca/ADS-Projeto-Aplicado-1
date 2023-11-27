@@ -223,7 +223,7 @@ object Form3: TForm3
       Width = 234
       Height = 23
       PasswordChar = #6
-      TabOrder = 1
+      TabOrder = 2
     end
     object btn2: TButton
       Left = 106
@@ -240,7 +240,7 @@ object Form3: TForm3
       Width = 234
       Height = 23
       PasswordChar = #6
-      TabOrder = 2
+      TabOrder = 1
     end
   end
   object editCPF: TEdit
@@ -272,5 +272,10 @@ object Form3: TForm3
       'SQL.dll'
     Left = 528
     Top = 104
+  end
+  object QueryIdPaciente: TSQLQuery
+    Params = <>
+    Left = 376
+    Top = 368
   end
 end

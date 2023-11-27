@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
   FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI;
+  FireDAC.Comp.UI, Data.FMTBcd, Data.SqlExpr;
 type
   TForm3 = class(TForm)
     lbl1: TLabel;
@@ -34,6 +34,7 @@ type
     edtPassAgain: TEdit;
     Label1: TLabel;
     editCPF: TEdit;
+    QueryIdPaciente: TSQLQuery;
     procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
@@ -47,7 +48,6 @@ implementation
 procedure TForm3.btn2Click(Sender: TObject);
 var
   strSQLResult: String;
-  temp1, temp2: Integer;
 begin
   // Verifica se os campos de usuário e senha estão preenchidos
   if (Trim(edtUser.Text) = '') or (Trim(editCPF.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
@@ -55,12 +55,10 @@ begin
     ShowMessage('Por favor, preencha todos os campos.');
     Exit;
   end;
-
   // Verifica se o usuário já existe no banco
   UsuarioTable.SQL.Text := 'SELECT usuario FROM usuario WHERE usuario = :valor1';
   UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
   UsuarioTable.Open;
-
   try
     if not UsuarioTable.IsEmpty then
     begin
@@ -68,29 +66,43 @@ begin
       ShowMessage('Usuário já existe no banco!');
       Exit;
     end;
-
     // Verifica se as senhas digitadas são iguais
     if edtPass.Text <> edtPassAgain.Text then
     begin
       ShowMessage('As senhas não são equivalentes!');
       Exit;
     end;
-
-    temp1 := 1;
-    temp2 := 1;
     // Insere novo usuário
     UsuarioTable.Close; // Fecha a consulta anterior
-    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha) VALUES (:valor1, :valor2, :valor3)';
     UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
     UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
     UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
-    UsuarioTable.Params.ParamByName('valor4').Value := temp1; // Substitua 'temp1' pelo valor desejado
-    UsuarioTable.Params.ParamByName('valor5').Value := temp2; // Substitua 'temp2' pelo valor desejado
     UsuarioTable.ExecSQL;
     ShowMessage('Registro inserido com sucesso!');
+
   finally
     UsuarioTable.Close; // Garante que a tabela seja sempre fechada
-  end;
+    QueryIdPaciente.SQL.Text := 'SELECT id FROM Paciente WHERE cpf = :valor6';
+    QueryIdPaciente.Params.ParamByName('valor6').Value := editCPF.Text;
+    QueryIdPaciente.Open;
+
+    try
+      if not QueryIdPaciente.IsEmpty then
+      begin
+        strSQLResult := QueryIdPaciente.FieldByName('id').AsString;
+
+        QueryIdPaciente.SQL.Text := 'UPDATE usuario SET id_paciente = :valor7 WHERE cpf = :valor8';
+        QueryIdPaciente.Params.ParamByName('valor7').Value := strSQLResult;
+        QueryIdPaciente.Params.ParamByName('valor8').Value := editCPF.Text;
+
+        QueryIdPaciente.ExecSQL;
+      end;
+    finally
+      QueryIdPaciente.Close;
+
+    end;
+      end;
 end;
 
 
