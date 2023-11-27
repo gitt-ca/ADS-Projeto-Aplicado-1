@@ -12,8 +12,10 @@ type
     btn1: TBitBtn;
     btn2: TBitBtn;
     imgLogoPrincipal: TImage;
+    btn3: TBitBtn;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -29,7 +31,7 @@ implementation
 {$R *.dfm}
 
 uses
-   TelaAgendamento, TelaCadPaciente;
+   TelaAgendamento, TelaCadPaciente, TelaCadMedic;
 
 procedure TForm4.btn1Click(Sender: TObject);
 begin
@@ -48,6 +50,16 @@ begin
  Form6.ShowModal;
  finally
  FreeAndNil(Form6);
+ end;
+end;
+
+procedure TForm4.btn3Click(Sender: TObject);
+begin
+ Form7:= TForm7.Create(nil);
+ try
+ Form7.ShowModal;
+ finally
+ FreeAndNil(Form7);
  end;
 end;
 

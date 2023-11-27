@@ -1,0 +1,97 @@
+unit Cadastro;
+
+interface
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait,
+  FireDAC.Comp.UI;
+type
+  TForm3 = class(TForm)
+    lbl1: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    pnlLogin: TPanel;
+    lbl6: TLabel;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    lbl9: TLabel;
+    lbl10: TLabel;
+    lbl11: TLabel;
+    edtUser: TEdit;
+    edtPass: TEdit;
+    btn2: TButton;
+    lbl12: TLabel;
+    UsuarioTable: TFDQuery;
+    FDConnection1: TFDConnection;
+    FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
+    edtPassAgain: TEdit;
+    editCPF: TEdit;
+    Label1: TLabel;
+    procedure btn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+var
+  Form3: TForm3;
+implementation
+{$R *.dfm}
+procedure TForm3.btn2Click(Sender: TObject);
+var
+  strSQLResult: String;
+  temp1, temp2: Integer;
+begin
+  // Verifica se os campos de usuário e senha estão preenchidos
+  if (Trim(edtUser.Text) = '') or (Trim(editCPF.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
+  begin
+    ShowMessage('Por favor, preencha todos os campos.');
+    Exit;
+  end;
+
+  // Verifica se o usuário já existe no banco
+  UsuarioTable.SQL.Text := 'SELECT usuario FROM usuario WHERE usuario = :valor1';
+  UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
+  UsuarioTable.Open;
+
+  try
+    if not UsuarioTable.IsEmpty then
+    begin
+      strSQLResult := UsuarioTable.FieldByName('usuario').AsString;
+      ShowMessage('Usuário já existe no banco!');
+      Exit;
+    end;
+
+    // Verifica se as senhas digitadas são iguais
+    if edtPass.Text <> edtPassAgain.Text then
+    begin
+      ShowMessage('As senhas não são equivalentes!');
+      Exit;
+    end;
+
+    temp1 := 'NULL';
+    temp2 := 'NULL';
+    // Insere novo usuário
+    UsuarioTable.Close; // Fecha a consulta anterior
+    UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha, id_paciente, id_funcionario) VALUES (:valor1, :valor2, :valor3, :valor4, :valor5)';
+    UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
+    UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
+    UsuarioTable.Params.ParamByName('valor3').Value := edtPass.Text;
+    UsuarioTable.Params.ParamByName('valor4').Value := temp1; // Substitua 'temp1' pelo valor desejado
+    UsuarioTable.Params.ParamByName('valor4').Value := temp2; // Substitua 'temp2' pelo valor desejado
+    UsuarioTable.ExecSQL;
+    ShowMessage('Registro inserido com sucesso!');
+  finally
+    UsuarioTable.Close; // Garante que a tabela seja sempre fechada
+  end;
+end;
+
+
+end.

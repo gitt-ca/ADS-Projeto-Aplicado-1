@@ -17,9 +17,11 @@ FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id),
 FOREIGN KEY (id_paciente) REFERENCES Paciente(id)
 );
 
+
 CREATE TABLE Funcionario(
 id int auto_increment not null,
 NomeFuncionario varchar(45),
+CPF varchar(45),
 CRM varchar(45),
 Especialidade varchar(45),
 Funcao varchar(45),
@@ -60,8 +62,9 @@ CREATE TABLE Usuario(
 id int auto_increment not null,
 Usuario varchar(45),
 Senha varchar(100),
-id_paciente int not null,
-id_funcionario int not null,
+CPF varchar(45),
+id_paciente int,
+id_funcionario int,
 primary key(id),
 
 FOREIGN KEY (id_paciente) REFERENCES Paciente(id),
@@ -88,8 +91,8 @@ id_usuario int not null,
 FOREIGN KEY (id_usuario) REFERENCES Usuario(id)
  );
 
-INSERT INTO Funcionario (NomeFuncionario, CRM, Especialidade, Funcao, Ativo, email)
-VALUES("Welynton", "Analitico", "Pediatra", "Medico", 1, "welynton.123@gmail.com");
+INSERT INTO Funcionario (NomeFuncionario, CPF,CRM, Especialidade, Funcao, Ativo, email)
+VALUES("Welynton", "192.158.0.0-21", "Analitico", "Pediatra", "Medico", 1, "welynton.123@gmail.com");
 
 INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone, ativo)
 VALUES("Gabriel", 20, "222.444.111.-99", "Rua Sete", "gabrie.l23@gmail.com", "49 1234-5678", 1);
@@ -100,8 +103,8 @@ VALUES('2023-7-14''14:23:00', "Consulta", "Rotina", 1, 1);
 INSERT INTO Historico(BatimentoCardiaco, PassosDia, OxigenacaoSangue, HorasSono, Data, id_paciente)
 VALUES("70 Bpm", "450", "95%", "8 Horas", '2023-7-14''14:23:00', 1);
 
-INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario)
-VALUES("Vitor", "2023", 1, 1 );
+INSERT INTO Usuario (Usuario, CPF, Senha)
+VALUES("Vitor","123123","2023");
 
 INSERT INTO HistoricoFisico (altura, peso, TipoSanguineo)
 VALUES("1.80", "78kg", "O+");
@@ -164,11 +167,24 @@ INSERT INTO Usuario (Usuario, Senha, id_paciente, id_funcionario)
 VALUES("caio", "123", 1, 1 );
 
 
-select * from usuario;
+select * from paciente;
 
 delete from usuario;
 
+desc funcionario;
 
+drop table usuario;
+
+drop table funcionario;
+
+select * from paciente;
+select * from funcionario;
+select * from usuario;
+delete from usuario;
+
+SET FOREIGN_KEY_CHECKS=0; -- to disable them
+
+SET FOREIGN_KEY_CHECKS=1; -- to re-enable them
 
 
 

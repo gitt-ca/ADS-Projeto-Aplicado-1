@@ -2,8 +2,8 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 441
-  ClientWidth = 642
+  ClientHeight = 440
+  ClientWidth = 638
   Color = clHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -227,15 +227,14 @@ object Form2: TForm2
       'Database=healthfamilycenter'
       'User_Name=root'
       'DriverID=MySQL')
-    Connected = True
     LoginPrompt = False
     Left = 392
     Top = 104
   end
   object FDPhysMySQLDriverLink2: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
-      'ibmySQL.dll'
+      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
+      'SQL.dll'
     Left = 528
     Top = 104
   end
