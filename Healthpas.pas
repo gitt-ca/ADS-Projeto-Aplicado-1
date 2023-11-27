@@ -77,6 +77,7 @@ begin
       finally
         FreeAndNil(Form4); // Liberar ram
       end;
+
     end
     else
       ShowMessage('Senha incorreta!');

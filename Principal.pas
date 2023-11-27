@@ -16,6 +16,7 @@ type
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
+    procedure btnHistoricoClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -63,5 +64,9 @@ begin
  end;
 end;
 
-end.
+procedure TForm4.btnHistoricoClick(Sender: TObject);
+begin
+//ajustar
+end;
 
+end.
