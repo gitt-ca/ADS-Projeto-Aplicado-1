@@ -10,7 +10,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, FireDAC.Phys.MySQLDef,
   FireDAC.Phys.MySQL, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Imaging.pngimage;
 
 type
   TForm6 = class(TForm)
@@ -32,6 +32,7 @@ type
     conConCadPaci: TFDConnection;
     fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink;
     fdqryQueryPaci: TFDQuery;
+    imgLogoPrincipal: TImage;
     procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
@@ -47,29 +48,24 @@ implementation
 {$R *.dfm}
 
 procedure TForm6.btnSalvarClick(Sender: TObject);
-var
-  DataModule: TDataModule; // Substitua TDataModule pelo nome do seu módulo de dados, se necessário
 begin
-  // Obtendo a instância do DataModule onde estão os componentes de conexão com o banco de dados
-  DataModule := TDataModule(Application.MainForm.FindComponent('fdqryQueryPaci')) as TDataModule;
-
   // Verificar se os campos obrigatórios estão preenchidos antes de inserir
   if (edtNomePaciente.Text <> '') and (edtTelefonePaciente.Text <> '') and
      (edtEmailPaciente.Text <> '') and (edtCpfPaciente.Text <> '') and
      (edtIdadePaciente.Text <> '') and (edtEnderecoPaciente.Text <> '') then
   begin
     // Inserir dados no banco de dados usando um componente de query, como TFDQuery
-    DataModule.fdqryQueryPaci.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
+    fdqryQueryPaci.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
       'VALUES (:NomeUsuario, :Idade, :CPF, :endereco, :email, :telefone)';
-    DataModule.fdqryQueryPaci.ParamByName('NomeUsuario').AsString := edtNomePaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('Idade').AsInteger := StrToIntDef(edtIdadePaciente.Text, 0);
-    DataModule.fdqryQueryPaci.ParamByName('CPF').AsString := edtCpfPaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('endereco').AsString := edtEnderecoPaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('email').AsString := edtEmailPaciente.Text;
-    DataModule.fdqryQueryPaci.ParamByName('telefone').AsString := edtTelefonePaciente.Text;
+    fdqryQueryPaci.Params.ParamByName('NomeUsuario').Value := edtNomePaciente.Text;
+    fdqryQueryPaci.Params.ParamByName('Idade').Value := StrToIntDef(edtIdadePaciente.Text, 0);
+    fdqryQueryPaci.Params.ParamByName('CPF').Value := edtCpfPaciente.Text;
+    fdqryQueryPaci.Params.ParamByName('endereco').Value := edtEnderecoPaciente.Text;
+    fdqryQueryPaci.Params.ParamByName('email').Value := edtEmailPaciente.Text;
+    fdqryQueryPaci.Params.ParamByName('telefone').Value := edtTelefonePaciente.Text;
 
     try
-      DataModule.fdqryQueryPaci.ExecSQL; // Executa a inserção no banco de dados
+      fdqryQueryPaci.ExecSQL; // Executa a inserção no banco de dados
 
       ShowMessage('Dados inseridos com sucesso!');
       // Limpar os campos após a inserção, se necessário
@@ -86,7 +82,9 @@ begin
       on E: Exception do
         ShowMessage('Erro ao inserir dados: ' + E.Message);
     end;
+    fdqryQueryPaci.Close;
   end
   else
     ShowMessage('Preencha todos os campos obrigatórios!');
 end;
+end.
