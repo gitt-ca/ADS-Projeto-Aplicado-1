@@ -250,4 +250,12 @@ object Form3: TForm3
     Left = 528
     Top = 104
   end
+<<<<<<< Updated upstream
+=======
+  object QueryIdPaciente: TFDQuery
+    Connection = FDConnection1
+    Left = 408
+    Top = 264
+  end
+>>>>>>> Stashed changes
 end

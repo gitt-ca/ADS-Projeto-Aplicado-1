@@ -208,7 +208,7 @@ object Form3: TForm3
       Width = 234
       Height = 23
       PasswordChar = #6
-      TabOrder = 2
+      TabOrder = 1
     end
     object btn2: TButton
       Left = 108
@@ -219,17 +219,13 @@ object Form3: TForm3
       TabOrder = 2
       OnClick = btn2Click
     end
-    object edt1: TEdit
+    object edtPassAgain: TEdit
       Left = 47
       Top = 272
       Width = 234
       Height = 23
-<<<<<<<< Updated upstream:__history/Cadastro.dfm.~22~
+      ImeName = 'edtPassAgain'
       TabOrder = 3
-========
-      PasswordChar = #6
-      TabOrder = 1
->>>>>>>> Stashed changes:__history/Cadastro.dfm.~59~
     end
   end
   object UsuarioTable: TFDQuery
