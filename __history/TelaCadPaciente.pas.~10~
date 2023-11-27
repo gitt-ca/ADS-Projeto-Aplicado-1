@@ -28,7 +28,6 @@ type
     edtIdadePaciente: TEdit;
     lblEndereco: TLabel;
     edtEnderecoPaciente: TEdit;
-    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,16 +40,5 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TForm6.btnSalvarClick(Sender: TObject);
-begin
-  with TelaCadPaciente do
-  begin
-    close;
-    Sql.clear;
-    sql.add('insert into Paciente ( Nomeusuario, Idade, CPF, endereco, email,telefone)
-  end;
-
-end;
 
 end.

@@ -130,24 +130,19 @@ object Form6: TForm6
       'User_Name=root'
       'Database=healthfamilycenter'
       'DriverID=MySQL')
-    Left = 56
-    Top = 104
+    Left = 40
+    Top = 96
   end
   object fdphysmysqldrvrlnkPaci: TFDPhysMySQLDriverLink
     VendorLib = 
       'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
       'ibmySQL.dll'
-<<<<<<< HEAD
-    Left = 48
-    Top = 168
-=======
-    Left = 56
+    Left = 16
     Top = 160
->>>>>>> f02939fde4a89d776bf79436ad89e6e1e5a91ee3
   end
   object fdqryQueryPaci: TFDQuery
     Connection = conConCadPaci
-    Left = 56
+    Left = 24
     Top = 240
   end
 end

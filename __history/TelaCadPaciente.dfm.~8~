@@ -123,7 +123,6 @@ object Form6: TForm6
     Height = 25
     Caption = 'Salvar'
     TabOrder = 7
-    OnClick = btnSalvarClick
   end
   object conConCadPaci: TFDConnection
     Params.Strings = (
@@ -137,13 +136,8 @@ object Form6: TForm6
     VendorLib = 
       'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
       'ibmySQL.dll'
-<<<<<<< HEAD
-    Left = 48
-    Top = 168
-=======
     Left = 56
     Top = 160
->>>>>>> f02939fde4a89d776bf79436ad89e6e1e5a91ee3
   end
   object fdqryQueryPaci: TFDQuery
     Connection = conConCadPaci
