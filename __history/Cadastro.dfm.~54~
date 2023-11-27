@@ -243,7 +243,7 @@ object Form3: TForm3
       TabOrder = 2
     end
   end
-  object Edit1: TEdit
+  object editCPF: TEdit
     Left = 39
     Top = 174
     Width = 234
