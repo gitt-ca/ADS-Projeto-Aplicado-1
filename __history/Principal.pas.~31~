@@ -19,13 +19,14 @@ type
     btn2: TBitBtn;
     imgLogoPrincipal: TImage;
     btn3: TBitBtn;
+    dbgrdInfouser: TDBGrid;
     conGridPrincipal: TFDConnection;
     fdqryQueryGridPrincipal: TFDQuery;
     fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink;
     lblGridPrincpal: TLabel;
+    dbnvgrNvigatorGridPrioncipal: TDBNavigator;
     QueryAgendamento: TFDQuery;
     DataSource1: TDataSource;
-    DBGrid1: TDBGrid;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);

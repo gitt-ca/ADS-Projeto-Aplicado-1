@@ -2,8 +2,8 @@ object Form4: TForm4
   Left = 0
   Top = 1182
   Caption = 'Form4'
-  ClientHeight = 452
-  ClientWidth = 775
+  ClientHeight = 513
+  ClientWidth = 914
   Color = clBtnFace
   DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
@@ -15,8 +15,8 @@ object Form4: TForm4
   TextHeight = 15
   object imgLogoPrincipal: TImage
     Left = 0
-    Top = 72
-    Width = 377
+    Top = 115
+    Width = 378
     Height = 390
     Align = alCustom
     Center = True
@@ -1561,7 +1561,7 @@ object Form4: TForm4
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 775
+    Width = 914
     Height = 83
     Align = alTop
     BorderStyle = bsSingle
@@ -2259,61 +2259,25 @@ object Form4: TForm4
       OnClick = btn3Click
     end
   end
-  object dbgrdInfouser: TDBGrid
-    Left = 383
-    Top = 123
-    Width = 384
-    Height = 257
+  object DBGrid1: TDBGrid
+    Left = 384
+    Top = 115
+    Width = 522
+    Height = 390
+    DataSource = DataSource1
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        Title.Caption = 'Data & Hora'
-        Width = 71
-        Visible = True
-      end
-      item
-        Expanded = False
-        Title.Caption = 'Titulo'
-        Width = 62
-        Visible = True
-      end
-      item
-        Expanded = False
-        Title.Caption = 'Assunto'
-        Width = 91
-        Visible = True
-      end
-      item
-        Expanded = False
-        Title.Caption = 'M'#233'dico'
-        Width = 61
-        Visible = True
-      end
-      item
-        Expanded = False
-        Title.Caption = 'Paciente'
-        Width = 78
-        Visible = True
-      end>
-  end
-  object dbnvgrNvigatorGridPrioncipal: TDBNavigator
-    Left = 432
-    Top = 400
-    Width = 320
-    Height = 25
-    TabOrder = 2
   end
   object conGridPrincipal: TFDConnection
     Params.Strings = (
       'User_Name=root'
       'Database=healthfamilycenter'
       'DriverID=MySQL')
+    Connected = True
     Left = 176
     Top = 400
   end
@@ -2329,15 +2293,25 @@ object Form4: TForm4
     Left = 296
     Top = 400
   end
-  object FDMemTable1: TFDMemTable
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    Left = 24
-    Top = 96
+  object QueryAgendamento: TFDQuery
+    Active = True
+    Connection = conGridPrincipal
+    SQL.Strings = (
+      
+        'SELECT Agendamento.datahora, Agendamento.titulo, Agendamento.tex' +
+        'to, Funcionario.NomeFuncionario, Paciente.NomeUsuario'
+      'FROM Agendamento'
+      'INNER JOIN Funcionario'
+      'ON Funcionario.id = Agendamento.id_funcionario'
+      'INNER JOIN Paciente'
+      'ON Paciente.id = Agendamento.id_paciente;'
+      '')
+    Left = 64
+    Top = 128
+  end
+  object DataSource1: TDataSource
+    DataSet = QueryAgendamento
+    Left = 64
+    Top = 208
   end
 end
