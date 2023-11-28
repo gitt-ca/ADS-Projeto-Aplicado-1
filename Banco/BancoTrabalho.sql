@@ -136,9 +136,9 @@ ON Agendamento.id_paciente=Paciente.id;
 
 SELECT Agendamento.id, Agendamento.datahora, Agendamento.titulo, Agendamento.texto, Funcionario.NomeFuncionario, Paciente.NomeUsuario
 FROM Agendamento
-INNER JOIN Funcionario
+LEFT JOIN Funcionario
 ON Funcionario.id = Agendamento.id_funcionario
-INNER JOIN Paciente
+LEFT JOIN Paciente
 ON Paciente.id = Agendamento.id_paciente;
 
 /*Historico*/

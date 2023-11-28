@@ -2328,14 +2328,14 @@ object Form4: TForm4
     Connection = conGridPrincipal
     SQL.Strings = (
       
-        'SELECT Agendamento.datahora, Agendamento.titulo, Agendamento.tex' +
-        'to, Funcionario.NomeFuncionario, Paciente.NomeUsuario'
+        'SELECT Agendamento.id, Agendamento.datahora, Agendamento.titulo,' +
+        ' Agendamento.texto, Funcionario.NomeFuncionario, Paciente.NomeUs' +
+        'uario'
       'FROM Agendamento'
-      'INNER JOIN Funcionario'
+      'LEFT JOIN Funcionario'
       'ON Funcionario.id = Agendamento.id_funcionario'
-      'INNER JOIN Paciente'
-      'ON Paciente.id = Agendamento.id_paciente;'
-      '')
+      'LEFT JOIN Paciente'
+      'ON Paciente.id = Agendamento.id_paciente;')
     Left = 64
     Top = 128
   end
