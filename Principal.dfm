@@ -2274,19 +2274,25 @@ object Form4: TForm4
     Columns = <
       item
         Expanded = False
+        FieldName = 'id'
+        Width = 21
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'datahora'
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'titulo'
-        Width = 97
+        Width = 89
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'texto'
-        Width = 194
+        Width = 184
         Visible = True
       end
       item
@@ -2298,7 +2304,7 @@ object Form4: TForm4
       item
         Expanded = False
         FieldName = 'NomeUsuario'
-        Width = 90
+        Width = 85
         Visible = True
       end>
   end
