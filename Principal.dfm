@@ -2275,7 +2275,7 @@ object Form4: TForm4
   end
   object dbnvgrNvigatorGridPrioncipal: TDBNavigator
     Left = 432
-    Top = 400
+    Top = 392
     Width = 320
     Height = 25
     TabOrder = 2
