@@ -2308,8 +2308,8 @@ object Form4: TForm4
       'Database=healthfamilycenter'
       'DriverID=MySQL')
     Connected = True
-    Left = 176
-    Top = 400
+    Left = 160
+    Top = 416
   end
   object fdqryQueryGridPrincipal: TFDQuery
     Connection = conGridPrincipal
