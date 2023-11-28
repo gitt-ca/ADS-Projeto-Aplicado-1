@@ -1567,7 +1567,7 @@ object Form4: TForm4
     BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 771
+    ExplicitWidth = 910
     object btn1: TBitBtn
       Left = 209
       Top = 1
@@ -2271,6 +2271,36 @@ object Form4: TForm4
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'datahora'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'titulo'
+        Width = 74
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'texto'
+        Width = 101
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NomeFuncionario'
+        Width = 120
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NomeUsuario'
+        Width = 121
+        Visible = True
+      end>
   end
   object conGridPrincipal: TFDConnection
     Params.Strings = (
@@ -2298,20 +2328,20 @@ object Form4: TForm4
     Connection = conGridPrincipal
     SQL.Strings = (
       
-        'SELECT Agendamento.datahora, Agendamento.titulo, Agendamento.tex' +
-        'to, Funcionario.NomeFuncionario, Paciente.NomeUsuario'
+        'SELECT Agendamento.id, Agendamento.datahora, Agendamento.titulo,' +
+        ' Agendamento.texto, Funcionario.NomeFuncionario, Paciente.NomeUs' +
+        'uario'
       'FROM Agendamento'
-      'INNER JOIN Funcionario'
+      'LEFT JOIN Funcionario'
       'ON Funcionario.id = Agendamento.id_funcionario'
-      'INNER JOIN Paciente'
-      'ON Paciente.id = Agendamento.id_paciente;'
-      '')
-    Left = 48
-    Top = 120
+      'LEFT JOIN Paciente'
+      'ON Paciente.id = Agendamento.id_paciente;')
+    Left = 64
+    Top = 128
   end
   object DataSource1: TDataSource
     DataSet = QueryAgendamento
-    Left = 40
+    Left = 64
     Top = 208
   end
 end
