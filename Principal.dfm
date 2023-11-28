@@ -14,9 +14,9 @@ object Form4: TForm4
   Position = poScreenCenter
   TextHeight = 15
   object imgLogoPrincipal: TImage
-    Left = -16
+    Left = 0
     Top = 72
-    Width = 401
+    Width = 377
     Height = 390
     Align = alCustom
     Center = True
@@ -2260,9 +2260,9 @@ object Form4: TForm4
     end
   end
   object dbgrdInfouser: TDBGrid
-    Left = 432
+    Left = 383
     Top = 123
-    Width = 320
+    Width = 384
     Height = 257
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
@@ -2270,6 +2270,37 @@ object Form4: TForm4
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        Title.Caption = 'Data & Hora'
+        Width = 71
+        Visible = True
+      end
+      item
+        Expanded = False
+        Title.Caption = 'Titulo'
+        Width = 62
+        Visible = True
+      end
+      item
+        Expanded = False
+        Title.Caption = 'Assunto'
+        Width = 91
+        Visible = True
+      end
+      item
+        Expanded = False
+        Title.Caption = 'M'#233'dico'
+        Width = 61
+        Visible = True
+      end
+      item
+        Expanded = False
+        Title.Caption = 'Paciente'
+        Width = 78
+        Visible = True
+      end>
   end
   object dbnvgrNvigatorGridPrioncipal: TDBNavigator
     Left = 432
@@ -2297,5 +2328,16 @@ object Form4: TForm4
       'SQL.dll'
     Left = 296
     Top = 400
+  end
+  object FDMemTable1: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 24
+    Top = 96
   end
 end

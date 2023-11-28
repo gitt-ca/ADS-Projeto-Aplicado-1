@@ -25,7 +25,6 @@ type
     fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink;
     lblGridPrincpal: TLabel;
     dbnvgrNvigatorGridPrioncipal: TDBNavigator;
-    FDMemTable1: TFDMemTable;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
