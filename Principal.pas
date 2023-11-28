@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
   FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  FireDAC.Phys.MySQLDef, FireDAC.Phys.MySQL;
+  FireDAC.Phys.MySQLDef, FireDAC.Phys.MySQL, Vcl.DBCtrls;
 type
   TForm4 = class(TForm)
     pnl1: TPanel;
@@ -23,6 +23,8 @@ type
     conGridPrincipal: TFDConnection;
     fdqryQueryGridPrincipal: TFDQuery;
     fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink;
+    lblGridPrincpal: TLabel;
+    dbnvgrNvigatorGridPrioncipal: TDBNavigator;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
@@ -78,5 +80,6 @@ procedure TForm4.btnHistoricoClick(Sender: TObject);
 begin
 //ajustar
 end;
+
 
 end.
