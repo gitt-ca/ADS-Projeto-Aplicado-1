@@ -2,7 +2,7 @@ object Form4: TForm4
   Left = 0
   Top = 1182
   Caption = 'Form4'
-  ClientHeight = 526
+  ClientHeight = 513
   ClientWidth = 914
   Color = clBtnFace
   DefaultMonitor = dmMainForm
@@ -2262,7 +2262,7 @@ object Form4: TForm4
   object DBGrid1: TDBGrid
     Left = 384
     Top = 115
-    Width = 521
+    Width = 522
     Height = 390
     DataSource = DataSource1
     TabOrder = 1
@@ -2297,13 +2297,21 @@ object Form4: TForm4
     Active = True
     Connection = conGridPrincipal
     SQL.Strings = (
-      'select * from agendamento;')
-    Left = 56
-    Top = 104
+      
+        'SELECT Agendamento.datahora, Agendamento.titulo, Agendamento.tex' +
+        'to, Funcionario.NomeFuncionario, Paciente.NomeUsuario'
+      'FROM Agendamento'
+      'INNER JOIN Funcionario'
+      'ON Funcionario.id = Agendamento.id_funcionario'
+      'INNER JOIN Paciente'
+      'ON Paciente.id = Agendamento.id_paciente;'
+      '')
+    Left = 64
+    Top = 128
   end
   object DataSource1: TDataSource
     DataSet = QueryAgendamento
-    Left = 48
-    Top = 168
+    Left = 64
+    Top = 208
   end
 end

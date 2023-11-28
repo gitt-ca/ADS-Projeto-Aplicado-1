@@ -1567,7 +1567,7 @@ object Form4: TForm4
     BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 771
+    ExplicitWidth = 910
     object btn1: TBitBtn
       Left = 209
       Top = 1
@@ -2271,6 +2271,36 @@ object Form4: TForm4
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'datahora'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'titulo'
+        Width = 74
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'texto'
+        Width = 101
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NomeFuncionario'
+        Width = 120
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NomeUsuario'
+        Width = 121
+        Visible = True
+      end>
   end
   object conGridPrincipal: TFDConnection
     Params.Strings = (
