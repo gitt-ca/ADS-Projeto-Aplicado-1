@@ -2258,6 +2258,22 @@ object Form4: TForm4
       TabOrder = 0
       OnClick = btn3Click
     end
+    object BitBtn1: TBitBtn
+      Left = 744
+      Top = 28
+      Width = 121
+      Height = 24
+      Caption = 'Visualizar Hist'#243'rico'
+      TabOrder = 3
+    end
+    object BitBtn2: TBitBtn
+      Left = 888
+      Top = 28
+      Width = 121
+      Height = 24
+      Caption = 'Deletar Agendamento'
+      TabOrder = 4
+    end
   end
   object DBGrid1: TDBGrid
     Left = 384

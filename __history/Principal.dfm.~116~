@@ -3,7 +3,7 @@ object Form4: TForm4
   Top = 1182
   Caption = 'Form4'
   ClientHeight = 513
-  ClientWidth = 914
+  ClientWidth = 1025
   Color = clBtnFace
   DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
@@ -15,9 +15,9 @@ object Form4: TForm4
   TextHeight = 15
   object imgLogoPrincipal: TImage
     Left = 0
-    Top = 115
-    Width = 378
-    Height = 390
+    Top = 75
+    Width = 385
+    Height = 438
     Align = alCustom
     Center = True
     ParentShowHint = False
@@ -1545,7 +1545,7 @@ object Form4: TForm4
     ShowHint = False
   end
   object lblGridPrincpal: TLabel
-    Left = 496
+    Left = 624
     Top = 84
     Width = 178
     Height = 25
@@ -1561,7 +1561,7 @@ object Form4: TForm4
   object pnl1: TPanel
     Left = 0
     Top = 0
-    Width = 914
+    Width = 1025
     Height = 83
     Align = alTop
     BorderStyle = bsSingle
@@ -2262,8 +2262,8 @@ object Form4: TForm4
   object DBGrid1: TDBGrid
     Left = 384
     Top = 115
-    Width = 522
-    Height = 390
+    Width = 641
+    Height = 398
     DataSource = DataSource1
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
@@ -2274,31 +2274,37 @@ object Form4: TForm4
     Columns = <
       item
         Expanded = False
+        FieldName = 'id'
+        Width = 21
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'datahora'
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'titulo'
-        Width = 74
+        Width = 89
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'texto'
-        Width = 101
+        Width = 184
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NomeFuncionario'
-        Width = 120
+        Width = 109
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NomeUsuario'
-        Width = 121
+        Width = 85
         Visible = True
       end>
   end
@@ -2308,8 +2314,8 @@ object Form4: TForm4
       'Database=healthfamilycenter'
       'DriverID=MySQL')
     Connected = True
-    Left = 176
-    Top = 400
+    Left = 160
+    Top = 416
   end
   object fdqryQueryGridPrincipal: TFDQuery
     Connection = conGridPrincipal
@@ -2335,7 +2341,9 @@ object Form4: TForm4
       'LEFT JOIN Funcionario'
       'ON Funcionario.id = Agendamento.id_funcionario'
       'LEFT JOIN Paciente'
-      'ON Paciente.id = Agendamento.id_paciente;')
+      
+        'ON Paciente.id = Agendamento.id_paciente order by Agendamento.da' +
+        'tahora;')
     Left = 64
     Top = 128
   end

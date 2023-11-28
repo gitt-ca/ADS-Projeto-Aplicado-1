@@ -26,6 +26,8 @@ type
     QueryAgendamento: TFDQuery;
     DataSource1: TDataSource;
     DBGrid1: TDBGrid;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
