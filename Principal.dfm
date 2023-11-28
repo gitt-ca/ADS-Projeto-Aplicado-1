@@ -1545,7 +1545,7 @@ object Form4: TForm4
     ShowHint = False
   end
   object lblGridPrincpal: TLabel
-    Left = 512
+    Left = 496
     Top = 84
     Width = 178
     Height = 25
@@ -1567,6 +1567,7 @@ object Form4: TForm4
     BorderStyle = bsSingle
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 771
     object btn1: TBitBtn
       Left = 209
       Top = 1
@@ -1796,7 +1797,6 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 2
       OnClick = btn1Click
-      ExplicitHeight = 80
     end
     object btn2: TBitBtn
       Left = 105
@@ -2027,7 +2027,6 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 1
       OnClick = btn2Click
-      ExplicitHeight = 80
     end
     object btn3: TBitBtn
       Left = 1
@@ -2258,12 +2257,11 @@ object Form4: TForm4
       Layout = blGlyphTop
       TabOrder = 0
       OnClick = btn3Click
-      ExplicitHeight = 80
     end
   end
   object dbgrdInfouser: TDBGrid
     Left = 432
-    Top = 115
+    Top = 123
     Width = 320
     Height = 257
     TabOrder = 1
@@ -2275,7 +2273,7 @@ object Form4: TForm4
   end
   object dbnvgrNvigatorGridPrioncipal: TDBNavigator
     Left = 432
-    Top = 392
+    Top = 400
     Width = 320
     Height = 25
     TabOrder = 2
