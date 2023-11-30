@@ -48,9 +48,9 @@ object Form5: TForm5
     Caption = 'Assunto'
   end
   object edtDate: TLabel
-    Left = 18
+    Left = 21
     Top = 197
-    Width = 3
+    Width = 91
     Height = 15
   end
   object pnl1: TPanel

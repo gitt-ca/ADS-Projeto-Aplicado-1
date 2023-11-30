@@ -50,7 +50,7 @@ object Form5: TForm5
   object edtDate: TLabel
     Left = 18
     Top = 197
-    Width = 111
+    Width = 3
     Height = 15
   end
   object pnl1: TPanel
@@ -81,6 +81,7 @@ object Form5: TForm5
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
+      OnClick = BitBtnSalvarClick
     end
   end
   object edtNomePaciente: TEdit
@@ -130,7 +131,7 @@ object Form5: TForm5
     HeaderInfo.Font.Height = -20
     HeaderInfo.Font.Name = 'Segoe UI'
     HeaderInfo.Font.Style = []
-    OnChangeView = CalendarView1ChangeView
+    OnChange = CalendarView1Change
     ParentFont = False
     TabOrder = 5
   end
@@ -144,12 +145,12 @@ object Form5: TForm5
   end
   object FDPhysMySQLDriverLink4: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\steve\Documents\GitHub\Health-Family-Center\Banco\libmy' +
-      'SQL.dll'
+      'C:\Users\vitor\OneDrive\Documentos\GitHub\Health-Family-Center\l' +
+      'ibmySQL.dll'
     Left = 192
     Top = 392
   end
-  object c: TFDQuery
+  object QueryAgenda: TFDQuery
     CachedUpdates = True
     Connection = FDConnection4
     Left = 24
