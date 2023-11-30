@@ -49,12 +49,12 @@ implementation
 
 procedure TForm6.btnSalvarClick(Sender: TObject);
 begin
-  // Verificar se os campos obrigatórios estão preenchidos antes de inserir
+  // Verificar os campos obrigatórios
   if (edtNomePaciente.Text <> '') and (edtTelefonePaciente.Text <> '') and
      (edtEmailPaciente.Text <> '') and (edtCpfPaciente.Text <> '') and
      (edtIdadePaciente.Text <> '') and (edtEnderecoPaciente.Text <> '') then
   begin
-    // Inserir dados no banco de dados usando um componente de query, como TFDQuery
+
     fdqryQueryPaci.SQL.Text := 'INSERT INTO Paciente (NomeUsuario, Idade, CPF, endereco, email, telefone) ' +
       'VALUES (:NomeUsuario, :Idade, :CPF, :endereco, :email, :telefone)';
     fdqryQueryPaci.Params.ParamByName('NomeUsuario').Value := edtNomePaciente.Text;
@@ -65,10 +65,10 @@ begin
     fdqryQueryPaci.Params.ParamByName('telefone').Value := edtTelefonePaciente.Text;
 
     try
-      fdqryQueryPaci.ExecSQL; // Executa a inserção no banco de dados
+      fdqryQueryPaci.ExecSQL;
 
       ShowMessage('Dados inseridos com sucesso!');
-      // Limpar os campos após a inserção, se necessário
+
       edtNomePaciente.Clear;
       edtTelefonePaciente.Clear;
       edtEmailPaciente.Clear;
@@ -76,8 +76,6 @@ begin
       edtIdadePaciente.Clear;
       edtEnderecoPaciente.Clear;
 
-      //  Atualizar o DBGrid com os dados inseridos, se necessário
-      // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
     except
       on E: Exception do
         ShowMessage('Erro ao inserir dados: ' + E.Message);

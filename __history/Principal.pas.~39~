@@ -1,0 +1,89 @@
+unit Principal;
+
+interface
+
+uses
+   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.Menus, Vcl.Imaging.jpeg, Vcl.WinXCalendars, Vcl.Imaging.pngimage, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, Data.FMTBcd, Data.SqlExpr, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  FireDAC.Phys.MySQLDef, FireDAC.Phys.MySQL, Vcl.DBCtrls;
+type
+  TForm4 = class(TForm)
+    pnl1: TPanel;
+    btn1: TBitBtn;
+    btn2: TBitBtn;
+    imgLogoPrincipal: TImage;
+    btn3: TBitBtn;
+    conGridPrincipal: TFDConnection;
+    fdqryQueryGridPrincipal: TFDQuery;
+    fdphysmysqldrvrlnkGridPrncipal: TFDPhysMySQLDriverLink;
+    lblGridPrincpal: TLabel;
+    QueryAgendamento: TFDQuery;
+    DataSource1: TDataSource;
+    DBGrid1: TDBGrid;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
+    procedure btnHistoricoClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+{$R *.dfm}
+
+uses
+   TelaAgendamento, TelaCadPaciente, TelaCadMedic;
+
+procedure TForm4.btn1Click(Sender: TObject);
+begin
+ Form5:= TForm5.Create(nil);
+ try
+ Form5.ShowModal;
+ finally
+ FreeAndNil(Form5);
+ end;
+end;
+
+procedure TForm4.btn2Click(Sender: TObject);
+begin
+ Form6:= TForm6.Create(nil);
+ try
+ Form6.ShowModal;
+ finally
+ FreeAndNil(Form6);
+ end;
+end;
+
+procedure TForm4.btn3Click(Sender: TObject);
+begin
+ Form7:= TForm7.Create(nil);
+ try
+ Form7.ShowModal;
+ finally
+ FreeAndNil(Form7);
+ end;
+end;
+
+procedure TForm4.btnHistoricoClick(Sender: TObject);
+begin
+//ajustar
+end;
+
+
+end.

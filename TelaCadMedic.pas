@@ -51,12 +51,12 @@ implementation
 procedure TForm7.btnSalvarClick(Sender: TObject);
 
 begin
-  //  Verificar se os campos obrigatórios estão preenchidos antes de inserir
+  //  Verifica os campos obrigatórios
   if (edtNomeMed.Text <> '') and (edtCPF.Text <> '') and
      (editiCRM.Text <> '') and (edtEspeci.Text <> '') and
      (edtFuncao.Text <> '') and (edtEmail.Text <> '') then
   begin
-    // Inserir dados no banco de dados usando um componente de query, como TFDQuery
+
     MedQuery.SQL.Text := 'INSERT INTO Funcionario (NomeFuncionario, CPF, CRM, Especialidade, Funcao, email, ativo)' +
       'VALUES (:NomeFunc, :CPF, :CRM, :Especialidade, :Funcao, :email, 1)';
     MedQuery.Params.ParamByName('NomeFunc').Value := edtNomeMed.Text;
@@ -66,17 +66,16 @@ begin
     MedQuery.Params.ParamByName('Funcao').Value := edtFuncao.Text;
     MedQuery.Params.ParamByName('email').Value := edtEmail.Text;
     try
-      MedQuery.ExecSQL; // Executa a inserção no banco de dados
+      MedQuery.ExecSQL;
       ShowMessage('Dados inseridos com sucesso!');
-      // Limpar os campos após a inserção, se necessário
+
       edtNomeMed.Clear;
       edtCPF.Clear;
       editiCRM.Clear;
       edtEspeci.Clear;
       edtFuncao.Clear;
       edtEmail.Clear;
-      // Atualizar o DBGrid com os dados inseridos, se necessário
-      // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
+
     except
       on E: Exception do
         ShowMessage('Erro ao inserir dados: ' + E.Message);

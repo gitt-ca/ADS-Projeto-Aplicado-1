@@ -15,7 +15,6 @@ uses
 type
   TForm4 = class(TForm)
     pnl1: TPanel;
-    btn1: TBitBtn;
     btn2: TBitBtn;
     imgLogoPrincipal: TImage;
     btn3: TBitBtn;
@@ -27,11 +26,12 @@ type
     DataSource1: TDataSource;
     DBGrid1: TDBGrid;
     BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
+    BitBtn4: TBitBtn;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure btnHistoricoClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -47,7 +47,18 @@ implementation
 {$R *.dfm}
 
 uses
-   TelaAgendamento, TelaCadPaciente, TelaCadMedic;
+   TelaAgendamento, TelaCadPaciente, TelaCadMedic,HistoricoPaciente;
+
+procedure TForm4.BitBtn1Click(Sender: TObject);
+begin
+ Form8:= TForm8.Create(nil);
+ try
+ Form8.ShowModal;
+ finally
+ FreeAndNil(Form8);
+ end;
+
+end;
 
 procedure TForm4.btn1Click(Sender: TObject);
 begin

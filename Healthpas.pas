@@ -63,7 +63,7 @@ var
 begin
   LoginSQL.SQL.Text := 'SELECT senha FROM usuario WHERE usuario = :valor1';
   LoginSQL.Params.ParamByName('valor1').Value := ediUser.Text;
-  LoginSQL.Open; // Use Open para executar a consulta SELECT
+  LoginSQL.Open; // Para executar a query
 
   if not LoginSQL.IsEmpty then
   begin

@@ -55,18 +55,17 @@ procedure TForm5.BitBtnSalvarClick(Sender: TObject);
 begin
 
 begin
-  // Verificar se os campos obrigatórios estão preenchidos antes de inserir
+  // Validação de campos obrigatorios
   if (edtNomePaciente.Text <> '') and (edtDate.Caption <> '') and
      (edtHora.Text <> '') and (edtTitulo.Text <> '') and
      (edtAssunto.Text <> '') then
   begin
 
 
-    // Inserir dados no banco de dados usando um componente de query, como TFDQuery
     QueryAgenda.SQL.Text := 'INSERT INTO Agendamento (datahora, titulo, texto) ' +
       'VALUES (:valor0, :valor1, :valor2)';
 
-    // Concatenando a data e hora e convertendo para TDateTime
+    // Concatenando a data e hora
     var
       datahora: String;
     begin
@@ -80,15 +79,13 @@ begin
     QueryAgenda.Params.ParamByName('valor2').Value := edtAssunto.Text;
 
     try
-      QueryAgenda.ExecSQL; // Executa a inserção no banco de dados
+      QueryAgenda.ExecSQL;
       ShowMessage('Dados inseridos com sucesso!');
-      // Limpar os campos após a inserção, se necessário
+      // Limpar os campos
       edtNomePaciente.Clear;
       edtTitulo.Clear;
       edtAssunto.Clear;
 
-      // Atualizar o DBGrid com os dados inseridos, se necessário
-      // DataModule.FDQueryGrid.Refresh; // Use o método correto para atualizar o DBGrid
     except
       on E: Exception do
         ShowMessage('Erro ao inserir dados: ' + E.Message);
@@ -104,8 +101,6 @@ end;
 
 procedure TForm5.CalendarView1Change(Sender: TObject);
 begin
-  // Este evento é acionado quando o usuário seleciona uma data no CalendarView
-  // Atualize o TLabel com a data selecionada
 
   edtDate.Caption := FormatDateTime('yyyy-mm-dd',CalendarView1.Date);
 end;

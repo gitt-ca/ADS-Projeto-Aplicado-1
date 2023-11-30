@@ -49,13 +49,13 @@ procedure TForm3.btn2Click(Sender: TObject);
 var
   strSQLResult: String;
 begin
-  // Verifica se os campos de usuário e senha estão preenchidos
+  // Validação dos preenchimento
   if (Trim(edtUser.Text) = '') or (Trim(editCPF.Text) = '') or (Trim(edtPass.Text) = '') or (Trim(edtPassAgain.Text) = '') then
   begin
     ShowMessage('Por favor, preencha todos os campos.');
     Exit;
   end;
-  // Verifica se o usuário já existe no banco
+  // Verifica se o usuário já existe
   UsuarioTable.SQL.Text := 'SELECT usuario FROM usuario WHERE usuario = :valor1';
   UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
   UsuarioTable.Open;
@@ -66,14 +66,14 @@ begin
       ShowMessage('Usuário já existe no banco!');
       Exit;
     end;
-    // Verifica se as senhas digitadas são iguais
+    // Verifica se as senhas são iguais
     if edtPass.Text <> edtPassAgain.Text then
     begin
       ShowMessage('As senhas não são equivalentes!');
       Exit;
     end;
     // Insere novo usuário
-    UsuarioTable.Close; // Fecha a consulta anterior
+    UsuarioTable.Close; // Fecha a query
     UsuarioTable.SQL.Text := 'INSERT INTO Usuario (Usuario, CPF, Senha) VALUES (:valor1, :valor2, :valor3)';
     UsuarioTable.Params.ParamByName('valor1').Value := edtUser.Text;
     UsuarioTable.Params.ParamByName('valor2').Value := editCPF.Text;
@@ -82,10 +82,10 @@ begin
     ShowMessage('Registro inserido com sucesso!');
 
   finally
-    UsuarioTable.Close; // Garante que a tabela seja sempre fechada
-    QueryIdPaciente.SQL.Text := 'SELECT id FROM Paciente WHERE cpf = :valor6';
-    QueryIdPaciente.Params.ParamByName('valor6').Value := editCPF.Text;
-    QueryIdPaciente.Open;
+    UsuarioTable.Close;
+    //QueryIdPaciente.SQL.Text := 'SELECT id FROM Paciente WHERE cpf = :valor6';
+    //QueryIdPaciente.Params.ParamByName('valor6').Value := editCPF.Text;
+    //QueryIdPaciente.Open;
 
     try
       if not QueryIdPaciente.IsEmpty then

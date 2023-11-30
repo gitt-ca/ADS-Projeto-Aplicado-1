@@ -2,6 +2,8 @@ show databases;
 
 use HealthFamilyCenter;
 
+DROP database HealthFamilyCenter;
+
 CREATE DATABASE HealthFamilyCenter;
 
 CREATE TABLE Agendamento(
